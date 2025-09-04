@@ -1,0 +1,39 @@
+\documentclass[11pt, twocolumn]{article}
+
+
+    % UNICODE CHARACTER SUPPORT - FIX FOR MISSING CHARACTERS
+    % Add this section to handle Unicode characters in Verbatim environments
+    \usepackage{newunicodechar}
+    
+    % Define replacements for problematic Unicode characters
+    \newunicodechar{ρ}{\ensuremath{\rho}}
+    \newunicodechar{≈}{\ensuremath{\approx}}
+    \newunicodechar{≤}{\ensuremath{\leq}}
+    \newunicodechar{≥}{\ensuremath{\geq}}
+    \newunicodechar{×}{\ensuremath{\times}}
+    \newunicodechar{β}{\ensuremath{\beta}}
+    \newunicodechar{α}{\ensuremath{\alpha}}
+    \newunicodechar{²}{\ensuremath{^2}}
+    \newunicodechar{₀}{\ensuremath{_0}}
+    \newunicodechar{₁}{\ensuremath{_1}}
+    \newunicodechar{₂}{\ensuremath{_2}}
+    % END UNICODE CHARACTER SUPPORT
+
+
+jupyter nbconvert assignments/Math6450_Assignment1.ipynb --to pdf
+jupyter nbconvert assignments/Math6450_Assignment1.ipynb --to pdf --template=ide_code.tpl
+
+#########ACTUALY USEFUL##########
+# this was a good command and made a rather nice pdf.
+jupyter nbconvert assignments/Math6450_Assignment1.ipynb --to pdf --no-input
+
+# this command is nice since then we can add the two columns of latex to this.
+jupyter nbconvert assignments/Math6450_Assignment1_copy_for_pdf_render.ipynb --to latex --no-input
+#########ACTUALY USEFUL##########
+
+jupyter nbconvert assignments/Math6450_Assignment1.ipynb --to pdf --template twocolumn.tplx --no-input
+
+jupyter nbconvert --no-input --to pdf --template=two_column Math6450_Assignment1_copy_for_pdf_render.ipynb
+jupyter nbconvert --no-input --to latex Math6450_Assignment1_copy_for_pdf_render.ipynb
+
+I need to install miktex
