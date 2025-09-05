@@ -1,4 +1,4 @@
-\documentclass[11pt, twocolumn]{article}
+\documentclass[8pt, twocolumn]{extarticle}
 
     \usepackage[breakable]{tcolorbox}
     \usepackage{parskip} % Stop auto-indenting (to mimic markdown behaviour)
@@ -63,6 +63,8 @@
     \newunicodechar{₀}{\ensuremath{_0}}
     \newunicodechar{₁}{\ensuremath{_1}}
     \newunicodechar{₂}{\ensuremath{_2}}
+    \newunicodechar{≠}{\ensuremath{\neq}}     % Not equal
+    \newunicodechar{✓}{\checkmark}            % Check mark
     % END UNICODE CHARACTER SUPPORT
 
     \usepackage{fancyvrb} % verbatim replacement that allows latex
@@ -429,10 +431,7 @@
     \maketitle
     
     
-
-    
-    Part 1: Data Exploration and Preparation
-
+    \textbf{Part 1: Data Exploration and Preparation}
     \begin{Verbatim}[commandchars=\\\{\}]
 BOSTON HOUSING DATASET ANALYSIS
 
@@ -441,14 +440,12 @@ Number of observations (rows): 506
 Number of variables (columns): 14
 Dataset shape: (506, 14)
 
-Column names: ['crim', 'zn', 'indus', 'chas', 'nox', 'rm', 'age', 'dis', 'rad',
-'tax', 'ptratio', 'b', 'lstat', 'medv']
+Column names: ['crim', 'zn', 'indus', 'chas', 'nox', 'rm', 'age', 'dis', 'rad', 'tax', 'ptratio', 'b', 'lstat', 'medv']
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
 
 1.2 DESCRIPTIVE STATISTICS
-
 Descriptive statistics for TARGET VARIABLE (medv):
 count   506.000
 mean     22.533
@@ -490,10 +487,8 @@ Kurtosis: 0.4932
 Correlation coefficient between medv and lstat: -0.7377
 
 INTERPRETA1TION:
-- The correlation coefficient of -0.7377 indicates a strong negative
-relationship
-- This means that as lstat (\% lower status population) increases, medv (median
-home value) tends to decrease
+- The correlation coefficient of -0.7377 indicates a strong negative relationship
+- This means that as lstat (\% lower status population) increases, medv (median home value) tends to decrease
 - The relationship explains approximately 54.4\% of the variance (R² = 0.5441)
 - Statistical significance: p-value = 5.08e-88
 - The correlation is statistically significant at α = 0.05
@@ -504,32 +499,22 @@ home value) tends to decrease
 1.4 SCATTER PLOT ANALYSIS
     \end{Verbatim}
 
-    \begin{center}
+    \centering
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_pdf_render_4_1.png}
-    \end{center}
-    { \hspace*{\fill} \\}
     
     \begin{Verbatim}[commandchars=\\\{\}]
 PATTERN OBSERVED IN SCATTER PLOT:
 - The scatter plot reveals a clear negative relationship between lstat and medv
-- As the percentage of lower status population increases, median home values
-tend to decrease
-- The relationship appears to be non-linear, showing a curved pattern rather
-than a straight line
+- As the percentage of lower status population increases, median home values tend to decrease
+- The relationship appears to be non-linear, showing a curved pattern rather than a straight line
 - There's more variability in home values at lower lstat percentages
-- The relationship seems stronger (steeper decline) at lower lstat values and
-levels off at higher lstat values
-- There are some potential outliers, particularly homes with high values despite
-higher lstat percentages
-- The data points form a characteristic negative exponential or power-law
-pattern
+- The relationship seems stronger (steeper decline) at lower lstat values and levels off at higher lstat values
+- There are some potential outliers, particularly homes with high values despite higher lstat percentages
+- The data points form a characteristic negative exponential or power-law pattern
     \end{Verbatim}
 
-    \begin{center}
+    \centering
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_pdf_render_4_3.png}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
     \begin{Verbatim}[commandchars=\\\{\}]
 
 SUMMARY:
@@ -539,12 +524,7 @@ SUMMARY:
 - Both variables show reasonable distributions for regression analysis
     \end{Verbatim}
 
-    Part 2: Linear Regression Model Fitting
-
-    2.1 Write the estimated regression equation in the form:
-
-\(\text{medv} = \hat{\beta}_0 + \hat{\beta}_1 \times \text{lstat}\)
-
+    \textbf{Part 2: Linear Regression Model Fitting}
 \[
 \text{medv} = \hat{\beta}_0 + \hat{\beta}_1 \times \text{lstat}
 \]
@@ -571,8 +551,7 @@ Intercept value: 34.5538
 
 INTERPRETATION:
 - The intercept represents the predicted median home value when lstat = 0
-- This means when 0\% of the population has lower status, the predicted median
-home value is \$34.55k
+- This means when 0\% of the population has lower status, the predicted median home value is \$34.55k
 - In practical terms: \$34554
 
 PRACTICAL MEANING:
@@ -591,24 +570,14 @@ PRACTICAL MEANING:
 Slope value: -0.9500
 
 INTERPRETATION:
-For each 1\% increase in lstat (lower status population), the median home value
-decreases by \$0.9500k on average, holding all other factors constant.
+For each 1\% increase in lstat (lower status population), the median home value decreases by \$0.9500k on average, holding all other factors constant.
 
 In practical terms:
-- A 1\% increase in lower status population is associated with a \$950 decrease in
-median home value
-- A 5\% increase in lower status population would decrease median home value by
-\$4750
-- A 10\% increase in lower status population would decrease median home value by
-\$9500
+- A 1\% increase in lower status population is associated with a \$950 decrease in median home value
+- A 5\% increase in lower status population would decrease median home value by \$4750
+- A 10\% increase in lower status population would decrease median home value by \$9500
     \end{Verbatim}
-
-    2.4 Based on the 95\% confidence intervals for the coefficients, are
-both the intercept and slope significantly different from zero? Support
-your answer with the confidence interval values.
-
-todo
-
+    
     \begin{Verbatim}[commandchars=\\\{\}]
 
 2.4 CONFIDENCE INTERVALS AND SIGNIFICANCE TESTING
@@ -652,28 +621,16 @@ F-statistic p-value: 5.08e-88
 Standard Error: 6.2158
     \end{Verbatim}
 
-    \begin{center}
+    \centering
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_pdf_render_11_1.png}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
     \begin{Verbatim}[commandchars=\\\{\}]
 
 FINAL SUMMARY:
 - Regression equation: medv = 34.5538 + (-0.9500) × lstat
 - Both coefficients are statistically significant at α = 0.05
 - The model explains 54.4\% of the variance in median home values
-- For every 1\% increase in lower status population, median home value decreases
-by \$950 on average
+- For every 1\% increase in lower status population, median home value decreases by \$950 on average
     \end{Verbatim}
-
-    Task 2.2: Model Performance Evaluation
-
-    2.5 What is the R-squared value? Interpret this in terms of the
-percentage of variation in median home values explained by the
-percentage of lower status population.
-
-todo
 
     \begin{Verbatim}[commandchars=\\\{\}]
 
@@ -682,13 +639,10 @@ R-squared value: 0.5441
 R-squared as percentage: 54.41\%
 
 INTERPRETATION:
-- R² = 0.5441 means that 54.41\% of the variation in median home values
-  is explained by the percentage of lower status population (lstat)
-- The remaining 45.59\% of variation is due to other factors not included in this
-model
+- R² = 0.5441 means that 54.41\% of the variation in median home values is explained by the percentage of lower status population (lstat)
+- The remaining 45.59\% of variation is due to other factors not included in this model
 - This indicates a moderate relationship
-- In practical terms: knowing the lstat value allows us to predict about 54.4\%
-of the variation in home values
+- In practical terms: knowing the lstat value allows us to predict about 54.4\% of the variation in home values
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -701,8 +655,7 @@ INTERPRETATION:
 - RMSE = 6.2158 thousands of dollars
 - In actual dollars: \$6216
 - This means the typical prediction error is approximately \$6216
-- On average, our predictions are off by about ±\$6216 from the actual median
-home value
+- On average, our predictions are off by about ±\$6216 from the actual median home value
 
 CONTEXT:
 - Mean home value: \$22.53k (\$22533)
@@ -730,18 +683,12 @@ INTERPRETATION:
 - This means lstat DOES have significant explanatory power for predicting medv
 
 PRACTICAL MEANING:
-- The F-test confirms that our regression model performs significantly better
-  than a model with no predictors (just the mean)
+- The F-test confirms that our regression model performs significantly better than a model with no predictors (just the mean)
 - The relationship between lstat and medv is statistically meaningful
 - We can be confident that lstat is a useful predictor of median home values
     \end{Verbatim}
 
-    2.8 Compare the adjusted R-squared with the regular R-squared. Why might
-there be a difference, and what does the adjusted version account for?
-todo
-
     \begin{Verbatim}[commandchars=\\\{\}]
-
 2.8 ADJUSTED R-SQUARED COMPARISON
 R-squared: 0.544146
 Adjusted R-squared: 0.543242
@@ -768,12 +715,9 @@ INTERPRETATION:
 - Both R² and adjusted R² tell essentially the same story
 
 PRACTICAL IMPLICATIONS:
-- For model comparison: Use adjusted R² when comparing models with different
-numbers of predictors
-- For interpretation: Both values are nearly identical, indicating a robust
-single-predictor model
-- The penalty for our one predictor is minimal given the sample size of 506
-observations
+- For model comparison: Use adjusted R² when comparing models with different numbers of predictors
+- For interpretation: Both values are nearly identical, indicating a robust single-predictor model
+- The penalty for our one predictor is minimal given the sample size of 506 observations
 
 FINAL SUMMARY:
 - R² = 0.5441 (54.41\% of variance explained)
@@ -784,7 +728,7 @@ FINAL SUMMARY:
 - Typical prediction accuracy: ±\$6216 (27.6\% of mean home value)
     \end{Verbatim}
 
-    Part 3: Statistical Inference and Hypothesis Testing
+    \textbf{Part 3: Statistical Inference and Hypothesis Testing}
 
     \begin{Verbatim}[commandchars=\\\{\}]
 
@@ -792,20 +736,17 @@ FINAL SUMMARY:
 TESTING THE SLOPE COEFFICIENT:
 H₀: β₁ = 0 (The slope coefficient is zero)
     → lstat has no linear relationship with medv
-    → There is no linear association between \% lower status population and
-median home value
+    → There is no linear association between \% lower status population and median home value
 
 H₁: β₁ ≠ 0 (The slope coefficient is not zero)
     → lstat has a significant linear relationship with medv
-    → There is a significant linear association between \% lower status
-population and median home value
+    → There is a significant linear association between \% lower status population and median home value
 
 Type of test: Two-tailed test
 Significance level: α = 0.05
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-
 3.2 T-STATISTIC AND P-VALUE ANALYSIS
 TEST STATISTICS:
 t-statistic: -24.527900
@@ -818,28 +759,18 @@ Decision rule: Reject H₀ if |t| > 1.9647 OR if p-value < 0.05
 Observed: |t| = 24.5279, p-value = 5.08e-88
 
 CONCLUSION AT 5\% SIGNIFICANCE LEVEL:
-✓ REJECT H₀: The slope coefficient IS significantly different from zero
-  - |t| = 24.5279 > 1.9647 ✓
-  - p-value = 5.08e-88 < 0.05 ✓
-  - Statistical evidence: There IS a significant linear relationship between
-lstat and medv
+ REJECT H₀: The slope coefficient IS significantly different from zero
+  - |t| = 24.5279 > 1.9647
+  - p-value = 5.08e-88 < 0.05
+  - Statistical evidence: There IS a significant linear relationship between lstat and medv
 
 PRACTICAL INTERPRETATION:
-- We can be 95\% confident that changes in \% lower status population
-  have a real, measurable effect on median home values
+- We can be 95\% confident that changes in \% lower status population have a real, measurable effect on median home values
 - The relationship observed in our sample is unlikely to be due to random chance
-- The effect size: each 1\% increase in lstat is associated with
-  a \$950 decrease in median home value
+- The effect size: each 1\% increase in lstat is associated with a \$950 decrease in median home value
     \end{Verbatim}
 
-    3.3 Calculate and interpret the 99\% confidence interval for the slope
-coefficient. How does this compare to the 95\% interval in terms of
-width and interpretation?
-
-todo
-
     \begin{Verbatim}[commandchars=\\\{\}]
-
 3.3 CONFIDENCE INTERVAL ANALYSIS
 CONFIDENCE INTERVALS FOR SLOPE COEFFICIENT:
 95\% Confidence Interval: [-1.026148, -0.873951]
@@ -853,24 +784,18 @@ Percent increase in width: 31.6\%
 
 INTERPRETATION:
 95\% CONFIDENCE INTERVAL:
-- We are 95\% confident that the true slope coefficient lies between
-  -1.026148 and -0.873951
-- In practical terms: each 1\% increase in lstat decreases median home value
-  by between \$874 and \$1026
+- We are 95\% confident that the true slope coefficient lies between -1.026148 and -0.873951
+- In practical terms: each 1\% increase in lstat decreases median home value by between \$874 and \$1026
 
 99\% CONFIDENCE INTERVAL:
-- We are 99\% confident that the true slope coefficient lies between
-  -1.050199 and -0.849899
-- In practical terms: each 1\% increase in lstat decreases median home value
-  by between \$850 and \$1050
+- We are 99\% confident that the true slope coefficient lies between -1.050199 and -0.849899
+- In practical terms: each 1\% increase in lstat decreases median home value by between \$850 and \$1050
 
 COMPARISON ANALYSIS:
 - The 99\% CI is wider than the 95\% CI by 0.048102
 - This represents a 31.6\% increase in width
-- WHY: Higher confidence level requires a wider interval to capture the true
-parameter
-- TRADE-OFF: More confidence (99\% vs 95\%) comes at the cost of precision (wider
-interval)
+- WHY: Higher confidence level requires a wider interval to capture the true parameter
+- TRADE-OFF: More confidence (99\% vs 95\%) comes at the cost of precision (wider interval)
 
 SIGNIFICANCE IMPLICATIONS:
 95\% CI contains zero: No
@@ -879,18 +804,11 @@ SIGNIFICANCE IMPLICATIONS:
 - This provides strong evidence for a real relationship between lstat and medv
     \end{Verbatim}
 
-    3.4 If someone claimed that each 1\% increase in lstat decreases median
-home value by exactly \$1000, would your regression results support or
-contradict this claim? Justify your answer using statistical evidence.
-
-todo
-
     \begin{Verbatim}[commandchars=\\\{\}]
 
 3.4 TESTING SPECIFIC CLAIM
 CLAIM TO TEST:
-Someone claims that each 1\% increase in lstat decreases median home value by
-exactly \$1000
+Someone claims that each 1\% increase in lstat decreases median home value by exactly \$1000
 In our units: β₁ = -1.0 (since medv is in thousands of dollars)
 
 HYPOTHESES:
@@ -915,10 +833,10 @@ t-statistic = 1.2896
 p-value (two-tailed): 0.1978
 
 CONCLUSION:
-✓ FAIL TO REJECT the claim at 95\% confidence level
+ FAIL TO REJECT the claim at 95\% confidence level
   - The claimed value (-1.0) IS within the 95\% confidence interval
   - Our regression results SUPPORT the claim
-✓ FAIL TO REJECT the claim at 99\% confidence level
+ FAIL TO REJECT the claim at 99\% confidence level
   - The claimed value (-1.0) IS within the 99\% confidence interval
 
 STATISTICAL EVIDENCE:
@@ -928,37 +846,28 @@ STATISTICAL EVIDENCE:
 - The difference is not statistically significant (p = 0.1978 ≥ 0.05)
 - Insufficient evidence to reject the claim
     \end{Verbatim}
-
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_pdf_render_26_1.png}
-    \end{center}
-    { \hspace*{\fill} \\}
     
+    \centering
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_pdf_render_26_1.png}
     \begin{Verbatim}[commandchars=\\\{\}]
 
 FINAL SUMMARY:
-3.1 Hypotheses: H₀: β₁ = 0 vs H₁: β₁ ≠ 0
-3.2 Test results: t = -24.5279, p = 5.08e-88
-    Conclusion: Reject H₀ - slope is significant
-3.3 Confidence intervals:
-    95\% CI: [-1.026148, -0.873951] (width: 0.152198)
-    99\% CI: [-1.050199, -0.849899] (width: 0.200300)
-    99\% CI is 31.6\% wider than 95\% CI
-3.4 Claim test: The claim of exactly \$1000 decrease is SUPPORTED
-    Our estimate: \$950 decrease per 1\% lstat increase
-    Statistical significance of difference: p = 0.1978
+Hypotheses: H₀: β₁ = 0 vs H₁: β₁ ≠ 0
+Test results: t = -24.5279, p = 5.08e-88
+Conclusion: Reject H₀ - slope is significant
+Confidence intervals:
+95\% CI: [-1.026148, -0.873951] (width: 0.152198)
+99\% CI: [-1.050199, -0.849899] (width: 0.200300)
+99\% CI is 31.6\% wider than 95\% CI
+Claim test: The claim of exactly \$1000 decrease is SUPPORTED
+Our estimate: \$950 decrease per 1\% lstat increase
+Statistical significance of difference: p = 0.1978
     \end{Verbatim}
 
-    Part 4: Assumption Testing and Model Diagnostics
-
-    4.1 Perform the Shapiro-Wilk test for normality of residuals. Report the
-test statistic, p-value, and your conclusion at the 5\% significance
-level.
-
-todo
+    \textbf{Part 4: Assumption Testing and Model Diagnostics}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-BOSTON HOUSING ASSUMPTION TESTING AND MODEL DIAGNOSTICS - PART 4
+BOSTON HOUSING ASSUMPTION TESTING AND MODEL DIAGNOSTICS
 MODEL SUMMARY:
 Sample size: 506
 Number of residuals: 506
@@ -980,15 +889,14 @@ Decision rule: Reject H₀ if p-value < 0.05
 Observed p-value: 0.000000
 
 CONCLUSION AT 5\% SIGNIFICANCE LEVEL:
-✗ REJECT H₀: Residuals do not follow a normal distribution
+ REJECT H₀: Residuals do not follow a normal distribution
   - Statistical evidence suggests departure from normality
   - The normality assumption may be violated
 
 INTERPRETation OF TEST STATISTIC:
 - W = 0.878572
 - W ranges from 0 to 1, with values closer to 1 indicating more normal-like data
-- Our value suggests weak evidence of normality based on the test statistic
-alone
+- Our value suggests weak evidence of normality based on the test statistic alone
 
 ADDITIONAL NORMALITY TESTS (for comparison):
 D'Agostino's test: statistic = 137.0434, p-value = 0.000000
@@ -997,8 +905,6 @@ Jarque-Bera test: statistic = 291.3734, p-value = 0.000000
 CONSENSUS: Tests show mixed results regarding normality
     \end{Verbatim}
 
-    4.2 Create a Q-Q plot of the residuals. Does the visual evidence support
-or contradict your statistical test result? Explain what you observe.
 
     \begin{Verbatim}[commandchars=\\\{\}]
 
@@ -1013,19 +919,11 @@ VISUAL ASSESSMENT:
 - Good fit with minor deviations
 - Look for points following the red diagonal line
 - Systematic deviations suggest non-normality
+- Graphed Q-Q plot backs up the previously observed weak evidence of normality based on the test statistic
     \end{Verbatim}
 
-    \begin{center}
+    \centering
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_pdf_render_31_1.png}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    4.3 Create a histogram of residuals with a normal distribution overlay.
-Comment on the shape of the distribution and any departures from
-normality.
-
-todo
-
     \begin{Verbatim}[commandchars=\\\{\}]
 
 4.3 HISTOGRAM WITH NORMAL DISTRIBUTION OVERLAY
@@ -1042,11 +940,8 @@ KURTOSIS INTERPRETATION:
 - Normal distribution has excess kurtosis = 0
     \end{Verbatim}
 
-    \begin{center}
+    \centering
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_pdf_render_33_1.png}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
     \begin{Verbatim}[commandchars=\\\{\}]
 
 DEPARTURES FROM NORMALITY:
@@ -1059,7 +954,7 @@ Identified departures from normality:
 4.2 VISUAL EVIDENCE VS STATISTICAL TEST COMPARISON:
 Statistical test result (Shapiro-Wilk): Rejects normality
 Visual evidence assessment: Shows deviations from normality
-✓ AGREEMENT: Visual evidence and statistical test both suggest departure from
+ AGREEMENT: Visual evidence and statistical test both suggest departure from
 normality
 
 DETAILED VISUAL OBSERVATIONS:
@@ -1072,7 +967,7 @@ Histogram:
 - Skewness and/or kurtosis concerns visible
 
 PRACTICAL IMPLICATIONS FOR REGRESSION:
-⚠ NORMALITY ASSUMPTION VIOLATED:
+ NORMALITY ASSUMPTION VIOLATED:
   - Confidence intervals may be less reliable
   - Consider robust standard errors
   - Prediction intervals may be inaccurate
@@ -1084,23 +979,18 @@ SAMPLE SIZE CONSIDERATIONS:
 - Minor deviations from normality are less problematic
 
 FINAL SUMMARY:
-4.1 Shapiro-Wilk test: W = 0.878572, p = 0.000000
-    Conclusion: Residuals deviate from normality
-4.2 Q-Q plot assessment: r = 0.9373
-    Visual evidence: Shows deviations from normality
-4.3 Histogram analysis:
-    Skewness: 1.4527, Kurtosis: 2.3191
-    Shape: highly skewed, heavy-tailed (leptokurtic)
+Shapiro-Wilk test: W = 0.878572, p = 0.000000
+Conclusion: Residuals deviate from normality
+Q-Q plot assessment: r = 0.9373
+Visual evidence: Shows deviations from normality
+Histogram analysis:
+Skewness: 1.4527, Kurtosis: 2.3191
+Shape: highly skewed, heavy-tailed (leptokurtic)
 Overall normality assessment: VIOLATED
     \end{Verbatim}
 
-    Task 4.2: Homoscedasticity Testing
-
-    4.4 Perform the Breusch-Pagan test for homoscedasticity. Report the test
-statistic, p-value, and your conclusion.
-
     \begin{Verbatim}[commandchars=\\\{\}]
-=== 4.4: BREUSCH-PAGAN TEST RESULTS ===
+4.4: BREUSCH-PAGAN TEST RESULTS
 Test Statistic: 4.1871
 P-value: 0.0407
 Degrees of Freedom: 1
@@ -1108,15 +998,12 @@ Degrees of Freedom: 1
 Conclusion: Reject H0 at α = 0.05. Evidence of heteroscedasticity.
 
 Verification (statsmodels function): Stat = 65.1218, P-value = 0.0000
-
-
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-=== 4.5: RESIDUALS VS. FITTED VALUES ANALYSIS ===
+4.5: RESIDUALS VS. FITTED VALUES ANALYSIS
 Pattern interpretation:
-- HOMOSCEDASTICITY: Points should be randomly scattered around the horizontal
-line at y=0
+- HOMOSCEDASTICITY: Points should be randomly scattered around the horizontal line at y=0
 - HETEROSCEDASTICITY indicators:
   * Funnel shape (variance increases or decreases with fitted values)
   * Curved patterns in the smoothing line
@@ -1126,35 +1013,27 @@ Variance in lowest third of fitted values: 17.2703
 Variance in highest third of fitted values: 31.7984
 Variance ratio (high/low): 1.8412
 Interpretation: Ratio > 2 or < 0.5 suggests heteroscedasticity
-
     \end{Verbatim}
-
-    \begin{center}
+    \centering
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_pdf_render_38_1.png}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
     \begin{Verbatim}[commandchars=\\\{\}]
-=== 4.6: SCALE-LOCATION PLOT ANALYSIS ===
+4.6: SCALE-LOCATION PLOT ANALYSIS
 Evidence of changing variance:
 - CONSTANT VARIANCE: Smoothing line should be roughly horizontal
 - CHANGING VARIANCE indicators:
   * Upward or downward trend in smoothing line
   * Clear patterns or curves in the line
 
-Correlation between fitted values and √|residuals|: 0.1507
+Correlation between fitted values and |residuals|: 0.1507
 Interpretation:
   * Moderate correlation suggests possible heteroscedasticity
-
     \end{Verbatim}
 
-    \begin{center}
+    \centering
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_pdf_render_39_1.png}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
+
     \begin{Verbatim}[commandchars=\\\{\}]
-=== COMPREHENSIVE HOMOSCEDASTICITY ASSESSMENT ===
+COMPREHENSIVE HOMOSCEDASTICITY ASSESSMENT
 
 TEST RESULTS SUMMARY:
 1. Breusch-Pagan Test: Statistic = 4.1871, P-value = 0.0407
@@ -1177,10 +1056,8 @@ Note: Visual inspection of plots is crucial - statistical tests should be
 combined with graphical analysis for complete assessment.
     \end{Verbatim}
 
-    Task 4.3: Independence and Influence Diagnostics
-
     \begin{Verbatim}[commandchars=\\\{\}]
-=== 4.7: DURBIN-WATSON TEST RESULTS ===
+4.7: DURBIN-WATSON TEST RESULTS
 Durbin-Watson Statistic: 1.0784
 First-order autocorrelation (ρ): 0.4608
 
@@ -1196,7 +1073,7 @@ Durbin-Watson Guidelines:
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-=== 4.8: COOK'S DISTANCE ANALYSIS ===
+4.8: COOK'S DISTANCE ANALYSIS
 Maximum Cook's Distance: 0.1657
 Mean Cook's Distance: 0.0030
 Standard Deviation: 0.0112
@@ -1222,7 +1099,7 @@ TOP 5 MOST INFLUENTIAL OBSERVATIONS:
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-=== 4.9: HIGH LEVERAGE ANALYSIS ===
+4.9: HIGH LEVERAGE ANALYSIS
 Number of parameters (p): 14
 Sample size (n): 506
 High leverage threshold (2p/n): 2 × 14 / 506 = 0.0553
@@ -1249,7 +1126,7 @@ satisfied and which (if any) are violated.
 todo
 
     \begin{Verbatim}[commandchars=\\\{\}]
-=== 4.10: COMPREHENSIVE MODEL VALIDATION SUMMARY ===
+4.10: COMPREHENSIVE MODEL VALIDATION SUMMARY
 
 LINEAR REGRESSION ASSUMPTIONS ASSESSMENT:
 1. LINEARITY:
@@ -1281,7 +1158,7 @@ LINEAR REGRESSION ASSUMPTIONS ASSESSMENT:
     Test method: Cook's distance, leverage analysis
     Cook's D max: 0.1657
     High leverage obs: 36 (7.1\%)
-   ✓ Status: MARGINAL - Some influential observations present
+    Status: MARGINAL - Some influential observations present
 
 OVERALL MODEL VALIDITY FOR STATISTICAL INFERENCE:
 CURRENT ASSESSMENT (based on available tests):
@@ -1303,12 +1180,9 @@ Note: A complete assessment requires results from all assumption tests.
 Update this summary once you have completed the full diagnostic suite.
     \end{Verbatim}
 
-    \begin{center}
+    \centering
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_pdf_render_46_1.png}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    Part 5: Predictions and Intervals
+    \textbf{Part 5: Predictions and Intervals}
 
     \begin{Verbatim}[commandchars=\\\{\}]
 PREDICTIONS AND INTERVALS ANALYSIS
@@ -1321,7 +1195,7 @@ Column names: ['crim', 'zn', 'indus', 'chas', 'nox', 'rm', 'age', 'dis', 'rad',
 Using 'medv' as target variable
 Using 'lstat' as predictor variable (lstat)
 
-=== SIMPLE LINEAR REGRESSION MODEL ===
+SIMPLE LINEAR REGRESSION MODEL
 Model: medv \textasciitilde{} lstat
 R-squared: 0.5441
 Regression equation: medv = 34.5538 + -0.9500 × lstat
@@ -1329,7 +1203,7 @@ Regression equation: medv = 34.5538 + -0.9500 × lstat
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-=== 5.1: PREDICTION FOR LSTAT = 10\% ===
+5.1: PREDICTION FOR LSTAT = 10\%
 CALCULATION:
 ŷ = β₀ + β₁ × X
 ŷ = 34.5538 + -0.9500 × 10.0
@@ -1340,7 +1214,7 @@ Predicted median home value for lstat = 10\%: \$25.05k
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-=== 5.2: 95\% CONFIDENCE INTERVAL FOR MEAN RESPONSE ===
+5.2: 95\% CONFIDENCE INTERVAL FOR MEAN RESPONSE
 CALCULATION DETAILS:
 • Predicted value: 25.0533
 • Standard error of mean: 0.2948
@@ -1357,7 +1231,7 @@ with lstat = 10\% is between \$24.47k and \$25.63k.
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-=== 5.3: 95\% PREDICTION INTERVAL FOR INDIVIDUAL RESPONSE ===
+5.3: 95\% PREDICTION INTERVAL FOR INDIVIDUAL RESPONSE
 CALCULATION DETAILS:
 • Predicted value: 25.0533
 • Standard error of prediction: 6.4803
@@ -1374,14 +1248,8 @@ INTERVAL COMPARISON:
 
     \end{Verbatim}
 
-    5.4 Explain the difference between a confidence interval and a
-prediction interval in practical terms. When would you use each type?
-
-todo
-
     \begin{Verbatim}[commandchars=\\\{\}]
-=== 5.4: CONFIDENCE VS PREDICTION INTERVALS ===
-
+5.4: CONFIDENCE VS PREDICTION INTERVALS
 CONCEPTUAL DIFFERENCES:
 
 CONFIDENCE INTERVAL:
@@ -1415,15 +1283,8 @@ USE PREDICTION INTERVAL when:
 
     \end{Verbatim}
 
-    5.5 For lstat values of 5\%, 15\%, and 25\%, calculate point predictions
-and comment on how the relationship changes across different levels of
-the predictor variable
-
-todo
-
     \begin{Verbatim}[commandchars=\\\{\}]
-=== 5.5: PREDICTIONS AT MULTIPLE LSTAT VALUES ===
-
+5.5: PREDICTIONS AT MULTIPLE LSTAT VALUES
 POINT PREDICTIONS:
 lstat = 5\%:
   → Predicted value: \$29.80k
@@ -1465,13 +1326,10 @@ COMMENTS ON RELATIONSHIP:
 • Higher lstat (more lower status population) associated with lower home values
     \end{Verbatim}
 
-    \begin{center}
+    \centering
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_pdf_render_56_0.png}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
     \begin{Verbatim}[commandchars=\\\{\}]
-=== PREDICTIONS SUMMARY TABLE ===
+PREDICTIONS SUMMARY TABLE
 
 DETAILED PREDICTIONS TABLE:
  lstat  prediction  ci\_lower  ci\_upper  pi\_lower  pi\_upper  ci\_width  pi\_width
@@ -1490,7 +1348,7 @@ KEY INSIGHTS:
 • Prediction intervals are consistently 18.4x wider than confidence intervals
 • The linear relationship appears moderate (R² = 0.544)
 
-=== MODEL ASSUMPTIONS REMINDER ===
+MODEL ASSUMPTIONS REMINDER
 For these intervals to be valid, ensure:
 • Linear relationship between variables
 • Independence of residuals
