@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2025.9.3)  5 SEP 2025 14:12
+This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2025.9.3)  5 SEP 2025 14:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1243,31 +1243,18 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 
 LaTeX Warning: No \author given.
 
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.00085pt on input line 492.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.6006pt on input line 492.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 4.00043pt on input line 492.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.99915pt on input line 492.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.5994pt on input line 492.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 3.99957pt on input line 492.
-
-LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4> not available
-(Font)              size <5> substituted on input line 492.
-
 File: Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_
 for_pdf_render_4_1.png Graphic file (type bmp)
 <Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_p
 df_render_4_1.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 File: Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_
 for_pdf_render_4_3.png Graphic file (type bmp)
 <Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_p
 df_render_4_3.png>
-[1
+ [1
 
 
 ]
@@ -1275,69 +1262,61 @@ File: Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_
 for_pdf_render_11_1.png Graphic file (type bmp)
 <Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_p
 df_render_11_1.png>
- [2] [3]
-Underfull \vbox (badness 2418) has occurred while \output is active []
 
+[2] [3]
 File: Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_
 for_pdf_render_26_1.png Graphic file (type bmp)
 <Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_p
 df_render_26_1.png>
- [4]
 File: Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_
 for_pdf_render_31_1.png Graphic file (type bmp)
 <Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_p
 df_render_31_1.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 File: Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_
 for_pdf_render_33_1.png Graphic file (type bmp)
 <Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_p
 df_render_33_1.png>
- [5]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4]
 File: Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_
 for_pdf_render_38_1.png Graphic file (type bmp)
 <Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_p
 df_render_38_1.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 File: Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_
 for_pdf_render_39_1.png Graphic file (type bmp)
 <Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_p
 df_render_39_1.png>
- [6]
-[7]
+
+[5]
 File: Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_
 for_pdf_render_46_1.png Graphic file (type bmp)
 <Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_p
 df_render_46_1.png>
- [8]
+ [6]
 File: Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_
 for_pdf_render_56_0.png Graphic file (type bmp)
 <Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_p
 df_render_56_0.png>
- [9] (Math6450_Assignment1_copy_for_pdf_render.aux)
+ [7] [8
+
+] (Math6450_Assignment1_copy_for_pdf_render.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-
-
-LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 1.0pt have occurred.
-
 Package rerunfilecheck Info: File `Math6450_Assignment1_copy_for_pdf_render.out
 ' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 30677 strings out of 409616
- 600021 string characters out of 5773794
- 2055191 words of memory out of 5000000
- 52322 multiletter control sequences out of 15000+600000
- 564655 words of font info for 88 fonts, out of 8000000 for 9000
+ 30647 strings out of 409616
+ 599118 string characters out of 5773794
+ 2083191 words of memory out of 5000000
+ 52301 multiletter control sequences out of 15000+600000
+ 561497 words of font info for 69 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 101i,8n,114p,540b,550s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 101i,8n,114p,540b,546s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Math6450_Assignment1_copy_for_pdf_render.pdf (9 pages).
+Output written on Math6450_Assignment1_copy_for_pdf_render.pdf (8 pages).
