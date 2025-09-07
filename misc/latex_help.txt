@@ -31,6 +31,7 @@ jupyter nbconvert assignments/Math6450_Assignment1.ipynb --to pdf --no-input
 
 # this command is nice since then we can add the two columns of latex to this.
 jupyter nbconvert assignments/Math6450_Assignment1_copy_for_pdf_render.ipynb --to latex --no-input
+jupyter nbconvert Math6450_Assignment1_copy_for_pdf_render.ipynb --to latex --no-input
 
 xelatex *.tex
 #########ACTUALY USEFUL##########

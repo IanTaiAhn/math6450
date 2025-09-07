@@ -206,8 +206,8 @@
     \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
     % Document parameters
     % Document title
-    \title{Math6450\_Assignment1\_copy\_for\_pdf\_render}
-    
+    \title{Math6450 Assignment1: Linear Regression Analysis}
+    \author{Ian Tai Ahn}
     
     
     
@@ -427,7 +427,7 @@
     
 
 \begin{document}
-% \fontsize{7pt}{8pt}\selectfont
+\fontsize{8.5pt}{8pt}\selectfont
     \maketitle
     
     
@@ -893,7 +893,7 @@ CONCLUSION AT 5\% SIGNIFICANCE LEVEL:
   - Statistical evidence suggests departure from normality
   - The normality assumption may be violated
 
-INTERPRETation OF TEST STATISTIC:
+INTERPRETATION OF TEST STATISTIC:
 - W = 0.878572
 - W ranges from 0 to 1, with values closer to 1 indicating more normal-like data
 - Our value suggests weak evidence of normality based on the test statistic alone
@@ -923,7 +923,7 @@ VISUAL ASSESSMENT:
     \end{Verbatim}
 
     \centering
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_pdf_render_31_1.png}
+    \adjustimage{max size={0.7\linewidth}{0.7\paperheight}}{Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_pdf_render_31_1.png}
     \begin{Verbatim}[commandchars=\\\{\}]
 
 4.3 HISTOGRAM WITH NORMAL DISTRIBUTION OVERLAY
@@ -988,7 +988,6 @@ Skewness: 1.4527, Kurtosis: 2.3191
 Shape: highly skewed, heavy-tailed (leptokurtic)
 Overall normality assessment: VIOLATED
     \end{Verbatim}
-
     \begin{Verbatim}[commandchars=\\\{\}]
 4.4: BREUSCH-PAGAN TEST RESULTS
 Test Statistic: 4.1871
@@ -999,7 +998,6 @@ Conclusion: Reject H0 at α = 0.05. Evidence of heteroscedasticity.
 
 Verification (statsmodels function): Stat = 65.1218, P-value = 0.0000
     \end{Verbatim}
-
     \begin{Verbatim}[commandchars=\\\{\}]
 4.5: RESIDUALS VS. FITTED VALUES ANALYSIS
 Pattern interpretation:
@@ -1030,7 +1028,7 @@ Interpretation:
     \end{Verbatim}
 
     \centering
-    \adjustimage{max size={0.5\linewidth}{0.5\paperheight}}{Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_pdf_render_39_1.png}
+    \adjustimage{max size={0.4\linewidth}{0.4\paperheight}}{Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_pdf_render_39_1.png}
 
     \begin{Verbatim}[commandchars=\\\{\}]
 COMPREHENSIVE HOMOSCEDASTICITY ASSESSMENT
@@ -1045,15 +1043,9 @@ TEST RESULTS SUMMARY:
 3. Scale-Location Correlation: 0.1507
    → Moderate evidence of heteroscedasticity
 
-RECOMMENDATIONS:
-• Evidence suggests heteroscedasticity
-• Consider transformations (log, Box-Cox)
-• Use robust standard errors (White's correction)
-• Consider weighted least squares regression
-• Explore different model specifications
-
-Note: Visual inspection of plots is crucial - statistical tests should be
-combined with graphical analysis for complete assessment.
+FINAL SUMMARY
+Evidence suggests heteroscedasticity
+Explore different model specifications
     \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -1102,7 +1094,8 @@ TOP 5 MOST INFLUENTIAL OBSERVATIONS:
 4.9: HIGH LEVERAGE ANALYSIS
 Number of parameters (p): 14
 Sample size (n): 506
-High leverage threshold (2p/n): 2 × 14 / 506 = 0.0553
+High leverage threshold (2p/n)
+: 2 × 14 / 506 = 0.0553
 
 HIGH LEVERAGE RESULTS:
 • Observations with high leverage: 36
@@ -1117,22 +1110,20 @@ TOP 5 HIGHEST LEVERAGE OBSERVATIONS:
 4. Observation 410: Leverage = 0.1247
 5. Observation 365: Leverage = 0.0985
 
+FINAL SUMMARY
+36 observations exceed the leverage threshold, meaning they have unusually strong influence on the fitted values.
+The 7.1% figure is a bit higher than you'd expect under ideal conditions since leverage values tend to be low and centered around the mean of 0.0277
+The maximum leverage of 0.3060 is quite high—this observation (380) likely has a strong impact on the regression line and should be examined for potential outlier behavior or undue influence.
     \end{Verbatim}
-
-    4.10 Based on all assumption tests, is your linear regression model
-valid for statistical inference? Summarize which assumptions are
-satisfied and which (if any) are violated.
-
-todo
 
     \begin{Verbatim}[commandchars=\\\{\}]
 4.10: COMPREHENSIVE MODEL VALIDATION SUMMARY
 
 LINEAR REGRESSION ASSUMPTIONS ASSESSMENT:
 1. LINEARITY:
-    Test method: Residuals vs. fitted plots, added variable plots
-    Result: [Add your previous linearity test results]
-    Status: [SATISFIED / VIOLATED / MARGINAL]
+    Test method: Shapiro-Wilk test
+    Result: W = 0.878572
+    Status: VIOLATED
 
 2. INDEPENDENCE OF RESIDUALS:
     Test method: Durbin-Watson test
@@ -1141,20 +1132,22 @@ LINEAR REGRESSION ASSUMPTIONS ASSESSMENT:
 
 3. HOMOSCEDASTICITY (Constant Variance):
     Test method: Breusch-Pagan test, residuals plots
-    Result: [Add your previous homoscedasticity test results]
-    Status: [SATISFIED / VIOLATED / MARGINAL]
+    Result: Test Statistic: 4.1871
+    P-value: 0.0407
+    Degrees of Freedom: 1
+    Status: VIOLATED
 
 4. NORMALITY OF RESIDUALS:
     Test method: Shapiro-Wilk, Q-Q plots, histograms
-    Result: [Add your previous normality test results]
-    Status: [SATISFIED / VIOLATED / MARGINAL]
+    Result: Residuals deviate from normality
+    Q-Q plot assessment: r = 0.9373
+    Visual evidence: Shows deviations from normality
+    Histogram analysis:
+    Skewness: 1.4527, Kurtosis: 2.3191
+    Shape: highly skewed, heavy-tailed (leptokurtic)
+    Status: VIOLATED
 
-5. NO MULTICOLLINEARITY:
-    Test method: VIF analysis, correlation matrix
-    Result: [Add your multicollinearity test results if available]
-    Status: [SATISFIED / VIOLATED / MARGINAL]
-
-6. NO EXCESSIVE INFLUENTIAL OBSERVATIONS:
+5. NO EXCESSIVE INFLUENTIAL OBSERVATIONS:
     Test method: Cook's distance, leverage analysis
     Cook's D max: 0.1657
     High leverage obs: 36 (7.1\%)
@@ -1162,29 +1155,16 @@ LINEAR REGRESSION ASSUMPTIONS ASSESSMENT:
 
 OVERALL MODEL VALIDITY FOR STATISTICAL INFERENCE:
 CURRENT ASSESSMENT (based on available tests):
-• Assumptions checked: 2
+• Assumptions checked: 5
 • Assumptions satisfied: 0
-
-RECOMMENDATIONS:
- Some concerns with independence or influential observations
-
-NEXT STEPS:
-• Complete all assumption tests (linearity, homoscedasticity, normality)
-• Consider remedial measures if assumptions are violated:
-  - Data transformations (log, Box-Cox)
-  - Robust regression methods
-  - Remove or downweight influential observations
-  - Use different modeling approaches if assumptions severely violated
-
-Note: A complete assessment requires results from all assumption tests.
-Update this summary once you have completed the full diagnostic suite.
     \end{Verbatim}
 
     \centering
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment1_copy_for_pdf_render_files/Math6450_Assignment1_copy_for_pdf_render_46_1.png}
+    
     \textbf{Part 5: Predictions and Intervals}
-
     \begin{Verbatim}[commandchars=\\\{\}]
+
 PREDICTIONS AND INTERVALS ANALYSIS
 
 DATASET OVERVIEW
@@ -1347,19 +1327,6 @@ KEY INSIGHTS:
 • As lstat increases, predicted home values decrease
 • Prediction intervals are consistently 18.4x wider than confidence intervals
 • The linear relationship appears moderate (R² = 0.544)
-
-MODEL ASSUMPTIONS REMINDER
-For these intervals to be valid, ensure:
-• Linear relationship between variables
-• Independence of residuals
-• Homoscedasticity (constant variance)
-• Normality of residuals
-• No influential outliers
     \end{Verbatim}
 
-
-    % Add a bibliography block to the postdoc
-    
-    
-    
 \end{document}
