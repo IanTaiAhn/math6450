@@ -46,3 +46,5 @@ jupyter nbconvert assignments/Math6450_Assignment1.ipynb --to pdf --template two
 
 jupyter nbconvert --no-input --to pdf --template=two_column Math6450_Assignment1_copy_for_pdf_render.ipynb
 jupyter nbconvert --no-input --to latex Math6450_Assignment1_copy_for_pdf_render.ipynb
+
+jupyter nbconvert Math6450_Assignment2.ipynb --to latex --no-input
