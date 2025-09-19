@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2025.9.3)  19 SEP 2025 14:49
+This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 24.1) (preloaded format=xelatex 2025.9.3)  19 SEP 2025 15:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1287,10 +1287,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 599--600
 
  []
 
-! Undefined control sequence.
-l.618     \testbf
-                 {3 Multiple Regression Model}
-? 
 [2]
 Underfull \vbox (badness 5893) has occurred while \output is active []
 
@@ -1333,7 +1329,7 @@ pe bmp)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1091--1092
+Underfull \hbox (badness 10000) in paragraph at lines 1090--1091
 
  []
 
@@ -1342,7 +1338,7 @@ File: Math6450_Assignment2_files/Math6450_Assignment2_51_1.png Graphic file (ty
 pe bmp)
 <Math6450_Assignment2_files/Math6450_Assignment2_51_1.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 1147--1148
+Underfull \hbox (badness 10000) in paragraph at lines 1146--1147
 
  []
 
@@ -1353,11 +1349,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: Math6450_Assignment2_files/Math6450_Assignment2_60_1.png Graphic file (ty
 pe bmp)
 <Math6450_Assignment2_files/Math6450_Assignment2_60_1.png>
+
+Underfull \vbox (badness 1629) has occurred while \output is active []
+
 File: Math6450_Assignment2_files/Math6450_Assignment2_63_1.png Graphic file (ty
 pe bmp)
 <Math6450_Assignment2_files/Math6450_Assignment2_63_1.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 1432--1433
+Underfull \hbox (badness 10000) in paragraph at lines 1431--1432
 
  []
 
@@ -1365,7 +1364,7 @@ File: Math6450_Assignment2_files/Math6450_Assignment2_63_3.png Graphic file (ty
 pe bmp)
 <Math6450_Assignment2_files/Math6450_Assignment2_63_3.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 1439--1440
+Underfull \hbox (badness 10000) in paragraph at lines 1438--1439
 
  []
 
@@ -1376,7 +1375,7 @@ File: Math6450_Assignment2_files/Math6450_Assignment2_68_1.png Graphic file (ty
 pe bmp)
 <Math6450_Assignment2_files/Math6450_Assignment2_68_1.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 1555--1556
+Underfull \hbox (badness 10000) in paragraph at lines 1554--1555
 
  []
 
@@ -1385,7 +1384,7 @@ File: Math6450_Assignment2_files/Math6450_Assignment2_68_3.png Graphic file (ty
 pe bmp)
 <Math6450_Assignment2_files/Math6450_Assignment2_68_3.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 1580--1581
+Underfull \hbox (badness 10000) in paragraph at lines 1579--1580
 
  []
 
@@ -1393,7 +1392,7 @@ File: Math6450_Assignment2_files/Math6450_Assignment2_68_5.png Graphic file (ty
 pe bmp)
 <Math6450_Assignment2_files/Math6450_Assignment2_68_5.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 1594--1595
+Underfull \hbox (badness 10000) in paragraph at lines 1593--1594
 
  []
 
@@ -1401,7 +1400,7 @@ File: Math6450_Assignment2_files/Math6450_Assignment2_68_7.png Graphic file (ty
 pe bmp)
 <Math6450_Assignment2_files/Math6450_Assignment2_68_7.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 1604--1605
+Underfull \hbox (badness 10000) in paragraph at lines 1603--1604
 
  []
 
@@ -1409,7 +1408,7 @@ File: Math6450_Assignment2_files/Math6450_Assignment2_68_9.png Graphic file (ty
 pe bmp)
 <Math6450_Assignment2_files/Math6450_Assignment2_68_9.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 1615--1616
+Underfull \hbox (badness 10000) in paragraph at lines 1614--1615
 
  []
 
@@ -1420,7 +1419,7 @@ ype bmp)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [12]
-Underfull \hbox (badness 10000) in paragraph at lines 1639--1640
+Underfull \hbox (badness 10000) in paragraph at lines 1638--1639
 
  []
 
@@ -1428,7 +1427,7 @@ File: Math6450_Assignment2_files/Math6450_Assignment2_68_13.png Graphic file (t
 ype bmp)
 <Math6450_Assignment2_files/Math6450_Assignment2_68_13.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 1673--1674
+Underfull \hbox (badness 10000) in paragraph at lines 1672--1673
 
  []
 
