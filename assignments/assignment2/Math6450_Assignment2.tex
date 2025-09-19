@@ -48,10 +48,11 @@
     \fi
 
     % UNICODE CHARACTER SUPPORT - FIX FOR MISSING CHARACTERS
-    % Add this section to handle Unicode characters in Verbatim environments
     \usepackage{newunicodechar}
-    
-    % Define replacements for problematic Unicode characters
+    \usepackage{textcomp}  % For additional symbols
+    \usepackage{amssymb}   % For mathematical symbols
+
+    % Your existing definitions
     \newunicodechar{ρ}{\ensuremath{\rho}}
     \newunicodechar{≈}{\ensuremath{\approx}}
     \newunicodechar{≤}{\ensuremath{\leq}}
@@ -63,10 +64,30 @@
     \newunicodechar{₀}{\ensuremath{_0}}
     \newunicodechar{₁}{\ensuremath{_1}}
     \newunicodechar{₂}{\ensuremath{_2}}
-    \newunicodechar{≠}{\ensuremath{\neq}}     % Not equal
-    \newunicodechar{✓}{\checkmark}            % Check mark
-    % END UNICODE CHARACTER SUPPORT
+    \newunicodechar{≠}{\ensuremath{\neq}}
+    \newunicodechar{✓}{\ensuremath{\checkmark}}
     
+    % Additional subscripts from your error messages
+    \newunicodechar{₃}{\ensuremath{_3}}
+    \newunicodechar{₄}{\ensuremath{_4}}
+    \newunicodechar{₅}{\ensuremath{_5}}
+    \newunicodechar{₆}{\ensuremath{_6}}
+    \newunicodechar{₇}{\ensuremath{_7}}
+    \newunicodechar{ᵢ}{\ensuremath{_i}}
+
+    % Greek letters
+    \newunicodechar{ε}{\ensuremath{\varepsilon}}
+
+    % Mathematical symbols
+    \newunicodechar{∂}{\ensuremath{\partial}}
+    \newunicodechar{∼}{\ensuremath{\sim}}
+
+    % % Special symbols (these might need different approaches)
+    % \newunicodechar{🎯}{\textbullet}  % Fallback to bullet
+    % \newunicodechar{⚠}{\textwarning} % Warning symbol (requires textcomp)
+    % END UNICODE CHARACTER SUPPORT
+
+
     \usepackage{fancyvrb} % verbatim replacement that allows latex
     \usepackage{grffile} % extends the file name processing of package graphics
                          % to support a larger range
@@ -446,7 +467,6 @@
 
     \begin{Verbatim}[commandchars=\\\{\}]
 PropertyFund Dataset Analysis
-==================================================
 
 (a) Descriptive Statistics for Continuous Variables
 --------------------------------------------------
@@ -549,7 +569,7 @@ premium:
     \begin{Verbatim}[commandchars=\\\{\}]
 
 Summary of Findings:
-------------------------------
+--------------------------------------------------
 Variables with skewed distributions: deductible, age
 Variable most strongly correlated with claims: premium (r = 0.793)
 
@@ -572,7 +592,6 @@ Missing values: 0
 
     \begin{Verbatim}[commandchars=\\\{\}]
 Simple Linear Regression Analysis: Claims vs Coverage
-============================================================
 Dataset Information:
 Total observations: 1,340
 Observations used in regression: 1,340
@@ -703,7 +722,6 @@ age, prior claims, and premium.
 
     \begin{Verbatim}[commandchars=\\\{\}]
 Multiple Linear Regression Analysis
-==================================================
 Dependent Variable: claims
 Explanatory Variables: deductible, coverage, age, prior\_claims, premium
 
@@ -714,7 +732,7 @@ Observations removed (missing data): 0
 Number of explanatory variables: 5
 
 (a) Fitted Regression Equation
-----------------------------------------
+--------------------------------------------------
 Coefficient Estimates (rounded to 3 decimal places):
 Intercept (β₀): 3.208
 β\_1 (deductible): -0.728
@@ -744,7 +762,7 @@ where x₁=deductible, x₂=coverage, x₃=age, x₄=prior\_claims, x₅=premium
     \begin{Verbatim}[commandchars=\\\{\}]
 
 (b) Standard Errors for Each Coefficient
-----------------------------------------
+--------------------------------------------------
 Standard Errors:
 Intercept (β₀): 0.3172
 β\_1 (deductible): 0.0394
@@ -755,7 +773,7 @@ Intercept (β₀): 0.3172
 
 Additional Statistics (t-statistics and p-values):
 Coefficient     Estimate   Std Error    t-stat     p-value    Significance
----------------------------------------------------------------------------
+--------------------------------------------------
 Intercept       3.208      0.3172       10.113     0.0000     ***
 deductible      -0.728     0.0394       -18.459    0.0000     ***
 coverage        0.062      0.0020       30.624     0.0000     ***
@@ -777,7 +795,7 @@ Significance codes: *** p<0.001, ** p<0.01, * p<0.05
     \begin{Verbatim}[commandchars=\\\{\}]
 
 (c) Model Performance Statistics
-----------------------------------------
+--------------------------------------------------
 R² (Coefficient of Determination): 0.8130
 Adjusted R²: 0.8123
 Residual Standard Deviation: 2.7938
@@ -823,7 +841,6 @@ Residual Std Deviation    2.7938
     \begin{Verbatim}[commandchars=\\\{\}]
 
 Key Results Summary:
-==================================================
 ✓ Multiple regression equation fitted with 5 explanatory variables
 ✓ Model explains 81.3\% of variance in claims (R² = 0.8130)
 ✓ Adjusted R² = 0.8123 (accounts for number of variables)
@@ -849,8 +866,6 @@ Using the multiple regression model from Question 3:
 Statistical Inference and Hypothesis Testing
 Multiple Linear Regression Model: Claims vs (Deductible, Coverage, Age,
 Prior\_Claims, Premium)
-================================================================================
-==========
 Model Summary:
 Observations: 1340
 Variables: 5
@@ -860,7 +875,7 @@ MSE: 7.8052
 
 Coefficient Estimates:
 Variable        Coefficient  Std Error    t-statistic  p-value
----------------------------------------------------------------------------
+--------------------------------------------------
 deductible      -0.7278      0.0394       -18.4591     0.0000
 coverage        0.0621       0.0020       30.6239      0.0000
 age             0.0906       0.0068       13.4010      0.0000
@@ -868,7 +883,6 @@ prior\_claims    2.5797       0.1210       21.3156      0.0000
 premium         0.4953       0.2118       2.3382       0.0195
 
 (a) Testing Significance of Age Coefficient
-==================================================
 Hypothesis Test for Age Coefficient:
 
 Null Hypothesis (H₀): β\_age = 0
@@ -908,7 +922,6 @@ level.
 
 
 (b) 95\% Confidence Interval for Prior Claims Coefficient
-============================================================
 Confidence Interval Calculation:
 Coefficient (β\_prior\_claims): 2.5797
 Standard error: 0.1210
@@ -948,7 +961,6 @@ those without.
 
 
 (c) Overall F-test for Model Significance
-==================================================
 Overall F-test for Regression Model:
 
 Null Hypothesis (H₀): β₁ = β₂ = β₃ = β₄ = β₅ = 0
@@ -993,7 +1005,6 @@ The model performs well in predicting claims.
 
 
 Summary of All Statistical Tests:
-============================================================
                     Test             Statistic  p-value         Conclusion
 Age Coefficient (t-test)           t = 13.4010   0.0000        Significant
          Prior Claims CI CI = [2.3423, 2.8171]      N/A Does not contain 0
@@ -1030,7 +1041,6 @@ Add the binary variables type and location to your model from Question
 
     \begin{Verbatim}[commandchars=\\\{\}]
 Extended Multiple Linear Regression Analysis with Binary Variables
-======================================================================
 Adding 'type' and 'location' to the original model
 Dependent Variable: claims
 Original Variables: deductible, coverage, age, prior\_claims, premium
@@ -1048,10 +1058,9 @@ Adjusted R²: 0.8254
 Residual Standard Error: 2.6939
 
 (a) Extended Regression Model Equation
-==================================================
 Coefficient Estimates:
 Variable        Coefficient  Std Error    t-stat     p-value
-----------------------------------------------------------------------
+--------------------------------------------------
 Intercept       3.027        0.3171
 deductible      -0.713       0.0381       -18.706    0.0000
 coverage        0.058        0.0022       26.539     0.0000
@@ -1084,14 +1093,13 @@ Claims = 3.027 + -0.713×deductible + 0.058×coverage
     \begin{Verbatim}[commandchars=\\\{\}]
 
 (b) Interpretation of Type Coefficient
-=============================================
 Type Coefficient Analysis:
 Coefficient (β\_type): -1.419
 Standard Error: 0.1699
 t-statistic: -8.355
 p-value: 0.0000
 
-Type variable coding: [0, 1]
+Type variable coding: [np.int64(0), np.int64(1)]
 
 Practical Interpretation:
 • Properties with type = 1 have claims that are 1.419 units LOWER than
@@ -1122,10 +1130,9 @@ Statistical Significance:
     \begin{Verbatim}[commandchars=\\\{\}]
 
 (c) Partial F-test for Model Improvement
-=============================================
 Model Comparison (same sample size: 1340):
 Model                R²           Adj R²       Variables  RSS
-----------------------------------------------------------------------
+--------------------------------------------------
 Original             0.8130       0.8123       5          10412.1409
 Extended             0.8263       0.8254       7          9666.7444
 
@@ -1170,7 +1177,6 @@ Model Improvement Assessment:
 
 
 Executive Summary:
-==================================================
                   Aspect                                             Finding
  Extended Model Equation Claims = 3.027 + {\ldots} + -1.419×type + 0.859×location
         Type Coefficient                                              -1.419
@@ -1194,7 +1200,6 @@ and type.
 
     \begin{Verbatim}[commandchars=\\\{\}]
 Regression Model with Interaction Term: Deductible × Type
-=================================================================
 Model Features: deductible, type, coverage, age, prior\_claims, premium
 Interaction Term: deductible × type
 
@@ -1202,7 +1207,7 @@ Data Summary:
 Total observations: 1,340
 Complete cases used: 1,340
 Missing values removed: 0
-Type variable coding: [0, 1]
+Type variable coding: [np.int64(0), np.int64(1)]
 
 Interaction Term (deductible × type) Statistics:
 Mean: 1.5335
@@ -1217,7 +1222,7 @@ F-statistic: 886.8341
 
 Coefficient Estimates:
 Variable           Coefficient  Std Error    t-stat     p-value    Sig
---------------------------------------------------------------------------------
+--------------------------------------------------
 Intercept          3.2856       0.3300
 deductible         -0.6729      0.0596       -11.2894   0.0000     ***
 type               -1.2573      0.2598       -4.8392    0.0000     ***
@@ -1229,7 +1234,6 @@ deductible\_x\_type  -0.0946      0.0779       -1.2151    0.2245
 Significance codes: *** p<0.001, ** p<0.01, * p<0.05
 
 (a) Regression Function with Interaction Term
-==================================================
 General Form:
 Claims = β₀ + β₁×deductible + β₂×type + β₃×coverage + β₄×age + β₅×prior\_claims +
 β₆×premium + β₇×(deductible×type) + ε
@@ -1256,7 +1260,6 @@ Claims = 3.2856 + -0.6729×deductible + -1.2573×type
     \begin{Verbatim}[commandchars=\\\{\}]
 
 (b) Interpretation of Deductible Effect by Property Type
-============================================================
 Key Coefficients:
 β₁ (deductible): -0.6729
 β₂ (type): -1.2573
@@ -1300,7 +1303,6 @@ Practical Business Interpretation:
     \begin{Verbatim}[commandchars=\\\{\}]
 
 (c) Statistical Significance Test for Interaction Term
-============================================================
 Hypothesis Test for Interaction Term:
 H₀: β₇ = 0 (no interaction between deductible and type)
 H₁: β₇ ≠ 0 (significant interaction exists)
@@ -1318,8 +1320,8 @@ Decision Rule:
 Reject H₀ if |t-statistic| > 1.9617 OR if p-value < 0.05
 
 Conclusion:
-✗ FAIL TO REJECT H₀: The interaction term is NOT statistically significant at
-the 5\% level.
+FAIL TO REJECT H₀: The interaction term is NOT statistically significant at the
+5\% level.
   |t-statistic| = 1.2151 ≤ 1.9617
   p-value = 0.2245 ≥ 0.05
   The effect of deductible on claims does NOT differ significantly between
@@ -1341,7 +1343,6 @@ uncertain
 
 
 Executive Summary:
-==================================================
                   Aspect
 Result
      Model Specification Claims \textasciitilde{} deductible + type + coverage + age +
@@ -1380,7 +1381,6 @@ Using your model from Question 5:
     \begin{Verbatim}[commandchars=\\\{\}]
 Residual Analysis and Model Diagnostics
 Extended Multiple Linear Regression Model
-============================================================
 Variables: deductible, coverage, age, prior\_claims, premium, type, location
 Model Summary:
 Observations: 1,340
@@ -1389,7 +1389,6 @@ R²: 0.8263
 Residual Standard Error: 2.6939
 
 (a) Residuals vs Fitted Values Analysis
-=============================================
 Residuals vs Fitted Values Analysis:
 Residual range: [-3.376, 15.203]
 Fitted values range: [0.792, 39.985]
@@ -1425,7 +1424,6 @@ appropriate)
     \begin{Verbatim}[commandchars=\\\{\}]
 
 (b) Q-Q Plot and Normality Analysis
-========================================
 Normality Test Results:
 Shapiro-Wilk Test:
   Statistic: 0.8106
@@ -1463,7 +1461,6 @@ Overall Normality Assessment: Assumption appears to be violated
     \begin{Verbatim}[commandchars=\\\{\}]
 
 (c) Outliers and Influential Points Analysis
-==================================================
 Diagnostic Thresholds:
 Outlier threshold (standardized residuals): ±3
 High leverage threshold: 0.0119
@@ -1505,7 +1502,7 @@ Highest Cooks: Observation 315
     \begin{Verbatim}[commandchars=\\\{\}]
 
 Detailed Analysis of Problematic Observations:
-------------------------------------------------------------
+--------------------------------------------------
  Obs Fitted Actual Std\_Residual Leverage Cooks\_D                 Issues
    1 13.477 22.670        3.412   0.0032  0.0054 Outlier, High Cook's D
    2  5.711  3.340       -0.880   0.0122  0.0014          High Leverage
@@ -1522,7 +1519,6 @@ Detailed Analysis of Problematic Observations:
 
 
 Diagnostic Summary:
-========================================
 1. Linearity: suggests linear relationship is appropriate
 2. Homoscedasticity: suggests homoscedasticity (constant variance)
 3. Normality: Assumption appears to be violated
@@ -1555,7 +1551,6 @@ Model C: claims ∼ deductible + coverage + prior claims + premium + type
 
     \begin{Verbatim}[commandchars=\\\{\}]
 Model Comparison and Selection Analysis
-============================================================
 Comparing three different model specifications:
 Model A: claims \textasciitilde{} deductible + coverage + age + prior\_claims + premium
 Model B: claims \textasciitilde{} deductible + coverage + age + prior\_claims + premium + type +
@@ -1599,7 +1594,6 @@ Significant coefficients (p < 0.05): 5/5
 
 
 (a) Model Comparison Table
-==================================================
 Primary Comparison Metrics:
   Model Variables     R²  Adj\_R²  Residual\_SD
 Model A    5 vars 0.8130  0.8123       2.7938
@@ -1645,7 +1639,6 @@ Model A vs Model B:
 
 
 (b) Model Recommendation and Analysis
-==================================================
 Statistical Criteria Analysis:
 
 1. Goodness of Fit:
@@ -1691,7 +1684,7 @@ Composite Scoring (weighted combination of criteria):
    • Model A: 0.700
    • Model C: 0.400
 
-🎯 RECOMMENDED MODEL: Model B
+ RECOMMENDED MODEL: Model B
 
 Justification for Model B:
    ✓ Highest predictive power (R² = 0.8263)
@@ -1700,8 +1693,8 @@ Justification for Model B:
    ✓ Best for prediction accuracy
 
 Limitations of Model B:
-   ⚠ More complex with potential overfitting risk
-   ⚠ May have multicollinearity issues
+    More complex with potential overfitting risk
+    May have multicollinearity issues
 
 Alternative Recommendations by Use Case:
    • For prediction accuracy: Model B
@@ -1739,6 +1732,161 @@ Using your recommended model from Question 8:
   Location: Urban
 \end{enumerate}
 
+    \begin{Verbatim}[commandchars=\\\{\}]
+Dataset Overview:
+   claims  deductible  coverage  age  type  location  prior\_claims  premium
+0   22.67        1.44     165.7    2     1         1             0     2.23
+1    3.34        6.52      59.9    8     0         0             1     0.84
+2   20.57        3.13     214.9   44     0         1             0     3.01
+3   18.33        2.33     233.5   16     0         1             0     3.24
+4   14.52        0.84     148.8   18     1         1             0     2.39
+
+Dataset shape: (1340, 8)
+
+Dataset info:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 1340 entries, 0 to 1339
+Data columns (total 8 columns):
+ \#   Column        Non-Null Count  Dtype
+---  ------        --------------  -----
+ 0   claims        1340 non-null   float64
+ 1   deductible    1340 non-null   float64
+ 2   coverage      1340 non-null   float64
+ 3   age           1340 non-null   int64
+ 4   type          1340 non-null   int64
+ 5   location      1340 non-null   int64
+ 6   prior\_claims  1340 non-null   int64
+ 7   premium       1340 non-null   float64
+dtypes: float64(4), int64(4)
+memory usage: 83.9 KB
+None
+
+Descriptive statistics:
+            claims   deductible     coverage          age         type  \textbackslash{}
+count  1340.000000  1340.000000  1340.000000  1340.000000  1340.000000
+mean     18.048522     2.489851   189.013806    15.438060     0.623134
+std       6.447785     1.942080    72.168704    14.227372     0.484782
+min       0.720000     0.510000    50.000000     1.000000     0.000000
+25\%      13.610000     1.030000   138.375000     5.000000     0.000000
+50\%      17.845000     1.905000   186.750000    11.000000     1.000000
+75\%      22.090000     3.310000   237.050000    21.000000     1.000000
+max      41.390000    10.000000   424.500000    85.000000     1.000000
+
+          location  prior\_claims      premium
+count  1340.000000   1340.000000  1340.000000
+mean      0.722388      0.790299     2.968537
+std       0.447988      0.877941     0.821797
+min       0.000000      0.000000     0.500000
+25\%       0.000000      0.000000     2.380000
+50\%       1.000000      1.000000     2.945000
+75\%       1.000000      1.000000     3.512500
+max       1.000000      4.000000     5.780000
+
+Missing values:
+claims          0
+deductible      0
+coverage        0
+age             0
+type            0
+location        0
+prior\_claims    0
+premium         0
+dtype: int64
+
+Features shape: (1340, 7)
+Target shape: (1340,)
+
+=== MODEL RESULTS ===
+R-squared: 0.8263
+Adjusted R-squared: 0.8254
+
+Model Coefficients:
+        Feature  Coefficient
+0     Intercept     3.026950
+1    deductible    -0.713391
+2      coverage     0.058017
+3           age     0.076546
+4  prior\_claims     2.391648
+5       premium     1.018707
+6          type    -1.419290
+7      location     0.858614
+
+Statistical Significance:
+        Feature  Coefficient  Std\_Error  t\_statistic       p\_value  \textbackslash{}
+0     Intercept     3.026950   0.316198     9.572968  0.000000e+00
+1    deductible    -0.713391   0.038024   -18.761697  0.000000e+00
+2      coverage     0.058017   0.002180    26.618766  0.000000e+00
+3           age     0.076546   0.006979    10.967841  0.000000e+00
+4  prior\_claims     2.391648   0.124993    19.134246  0.000000e+00
+5       premium     1.018707   0.237095     4.296623  1.860187e-05
+6          type    -1.419290   0.169370    -8.379819  0.000000e+00
+7      location     0.858614   0.172627     4.973820  7.420302e-07
+
+   Significant
+0         True
+1         True
+2         True
+3         True
+4         True
+5         True
+6         True
+7         True
+
+=== MODEL DIAGNOSTICS ===
+Mean Squared Error: 7.2140
+Root Mean Squared Error: 2.6859
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment2_files/Math6450_Assignment2_63_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+=== CORRELATION ANALYSIS ===
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment2_files/Math6450_Assignment2_63_3.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Correlations with Claims:
+claims          1.000000
+premium         0.792992
+coverage        0.760527
+prior\_claims    0.387403
+deductible     -0.265120
+age             0.198837
+location        0.105441
+type           -0.061114
+Name: claims, dtype: float64
+
+=== PART (a): PREDICTION ===
+Understanding categorical variables:
+Type values: [1 0]
+Location values: [1 0]
+Type value counts: type
+1    835
+0    505
+Name: count, dtype: int64
+Location value counts: location
+1    968
+0    372
+Name: count, dtype: int64
+
+Prediction for the given property:
+Expected claims amount: 19.49
+
+Sensitivity analysis for categorical variables:
+  Type=Commercial, Location=Rural: 20.05
+  Type=Commercial, Location=Urban: 20.91
+  Type=Residential, Location=Rural: 18.63
+  Type=Residential, Location=Urban: 19.49
+    \end{Verbatim}
+
     \begin{enumerate}
 \def\labelenumi{(\alph{enumi})}
 \setcounter{enumi}{1}
@@ -1748,6 +1896,67 @@ Using your recommended model from Question 8:
   recommendations would you make to an insurance company based on your
   analysis?
 \end{enumerate}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+PART (b): BUSINESS IMPLICATIONS AND RECOMMENDATIONS
+
+Feature Importance (by absolute coefficient value):
+        Feature  Coefficient  Abs\_Coefficient
+3  prior\_claims     2.391648         2.391648
+5          type    -1.419290         1.419290
+4       premium     1.018707         1.018707
+6      location     0.858614         0.858614
+0    deductible    -0.713391         0.713391
+2           age     0.076546         0.076546
+1      coverage     0.058017         0.058017
+
+Prediction Confidence Interval (95.0\%):
+Expected claims: 19.49
+Lower bound: 14.22
+Upper bound: 24.76
+
+----------------------------------------
+BUSINESS RECOMMENDATIONS:
+----------------------------------------
+
+1. PRICING STRATEGY:
+   - The model explains 82.6\% of the variation in claims
+   - Most significant factors should drive premium calculations
+   - Consider the prediction interval when setting reserves
+
+2. RISK FACTORS ANALYSIS:
+   Based on the coefficients, focus on:
+   - Variables with largest absolute coefficients
+   - Statistically significant predictors (p < 0.05)
+   - High correlation factors with claims
+
+3. UNDERWRITING GUIDELINES:
+   - Properties with high predicted claims may need:
+     * Higher premiums
+     * Additional risk assessment
+     * Different deductible structures
+   - Consider segmented pricing models
+
+4. PORTFOLIO MANAGEMENT:
+   - Monitor actual vs predicted claims regularly
+   - Update model coefficients as new data becomes available
+   - Consider non-linear relationships or interaction terms
+
+5. OPERATIONAL INSIGHTS:
+   - Use model predictions for:
+     * Reserve allocation
+     * Risk-based pricing
+     * Customer segmentation
+     * Fraud detection (outliers in residuals)
+
+
+OUTLIER ANALYSIS:
+Properties with unusually high/low claims (>2 std devs): 66
+These may require special investigation for:
+- Fraud detection
+- Model improvement opportunities
+- Special risk factors not captured in current model
+    \end{Verbatim}
 
     10 Critical Thinking
 
@@ -1760,6 +1969,192 @@ Using your recommended model from Question 8:
   claims context.
 \end{enumerate}
 
+    \begin{Verbatim}[commandchars=\\\{\}]
+PART (A): MULTIPLE LINEAR REGRESSION ASSUMPTIONS ANALYSIS
+
+The key assumptions of multiple linear regression are:
+
+1. LINEARITY: The relationship between predictors and response is linear
+2. INDEPENDENCE: Observations are independent of each other
+3. HOMOSCEDASTICITY: Constant variance of residuals (homogeneous variance)
+4. NORMALITY: Residuals are normally distributed
+5. NO MULTICOLLINEARITY: Predictors are not highly correlated with each other
+6. NO OUTLIERS/INFLUENTIAL POINTS: Extreme values don't unduly influence the
+model
+
+Let's test each assumption:
+
+1. LINEARITY ASSUMPTION
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment2_files/Math6450_Assignment2_68_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+LINEARITY ASSESSMENT:
+- Examine scatter plots for linear patterns
+- Residuals vs Fitted should show random scatter around zero
+- Non-linear patterns indicate violated linearity assumption
+
+Correlations with claims:
+  deductible: -0.265
+  coverage: 0.761
+  age: 0.199
+  premium: 0.793
+
+INSURANCE CONTEXT IMPLICATIONS:
+- Insurance claims may have non-linear relationships (e.g., coverage thresholds)
+- Age effects might be non-linear (newer vs very old properties)
+- Premium-claims relationship might be non-linear due to risk-based pricing
+2. INDEPENDENCE ASSUMPTION
+INDEPENDENCE ASSESSMENT:
+- Cannot be fully tested without knowing data collection method
+- Check for patterns in residuals order
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment2_files/Math6450_Assignment2_68_3.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Durbin-Watson statistic: 2.038
+  (Values near 2.0 suggest independence, <1.5 or >2.5 suggest correlation)
+
+INSURANCE CONTEXT IMPLICATIONS:
+- Properties in same area might have correlated risks (floods, earthquakes)
+- Temporal clustering if data spans multiple years with economic changes
+- Policy renewals might create dependencies
+3. HOMOSCEDASTICITY (CONSTANT VARIANCE) ASSUMPTION
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment2_files/Math6450_Assignment2_68_5.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Breusch-Pagan test:
+  LM statistic: 11.7914
+  p-value: 0.1076
+  Heteroscedasticity detected: No
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment2_files/Math6450_Assignment2_68_7.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+INSURANCE CONTEXT IMPLICATIONS:
+- Higher value properties might have more variable claims
+- Heteroscedasticity common in insurance data
+- May need weighted regression or transformation
+4. NORMALITY OF RESIDUALS ASSUMPTION
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment2_files/Math6450_Assignment2_68_9.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+NORMALITY TESTS:
+Shapiro-Wilk test:
+  Statistic: 0.8106, p-value: 0.0000
+  Normal distribution: No
+
+Jarque-Bera test:
+  Statistic: 2188.1490, p-value: 0.0000
+  Normal distribution: No
+
+Descriptive statistics:
+  Skewness: 1.9531
+  Kurtosis: 4.8921
+
+INSURANCE CONTEXT IMPLICATIONS:
+- Insurance claims often right-skewed (many small, few large claims)
+- May need log transformation or robust regression methods
+- Non-normality affects confidence intervals and hypothesis tests
+5. NO MULTICOLLINEARITY ASSUMPTION
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment2_files/Math6450_Assignment2_68_11.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+HIGH CORRELATIONS (|r| > 0.7):
+  coverage - premium: 0.723
+
+VARIANCE INFLATION FACTORS:
+       Variable        VIF
+0    deductible   2.302515
+1      coverage  36.103529
+2           age   3.980363
+3  prior\_claims   3.974976
+4       premium  86.843712
+5          type   3.287249
+6      location   3.743009
+  VIF > 5: Moderate multicollinearity
+  VIF > 10: High multicollinearity
+
+Variables with high VIF:
+   Variable        VIF
+1  coverage  36.103529
+4   premium  86.843712
+
+INSURANCE CONTEXT IMPLICATIONS:
+- Premium and coverage likely correlated (higher coverage = higher premium)
+- Deductible and coverage might be related
+- Consider removing highly correlated variables or using regularization
+6. NO OUTLIERS/INFLUENTIAL POINTS ASSUMPTION
+OUTLIER DETECTION:
+Observations with |standardized residuals| > 2.5: 48
+Observations with high Cook's distance: 13
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment2_files/Math6450_Assignment2_68_13.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+Outlier observations (standardized residuals > 2.5):
+     claims  deductible  coverage  age  premium
+0     22.67        1.44     165.7    2     2.23
+182   18.12        5.67     131.1   30     2.05
+203   35.65        5.08     378.5    8     4.39
+247   18.22        7.30     214.5    1     2.29
+269   28.41        1.20     209.1   13     2.89
+
+INSURANCE CONTEXT IMPLICATIONS:
+- Large claims are natural in insurance (catastrophic events)
+- Outliers might represent legitimate extreme events, not errors
+- Consider robust regression methods or separate models for extreme claims
+OVERALL ASSUMPTION ASSESSMENT FOR INSURANCE CLAIMS
+
+LIKELY VIOLATED ASSUMPTIONS:
+1. Linearity: Insurance relationships often non-linear
+2. Normality: Claims typically right-skewed
+3. Homoscedasticity: Variance often increases with claim size
+4. Independence: Geographic/temporal clustering possible
+
+RECOMMENDED SOLUTIONS:
+1. Log transformation of claims (handle skewness)
+2. Robust regression methods
+3. Polynomial or interaction terms
+4. Weighted least squares (address heteroscedasticity)
+5. Consider GLM (Gamma or Poisson regression)
+6. Outlier-robust methods
+
+    \end{Verbatim}
+
     \begin{enumerate}
 \def\labelenumi{(\alph{enumi})}
 \setcounter{enumi}{1}
@@ -1768,6 +2163,176 @@ Using your recommended model from Question 8:
   What additional variables might be useful to include in this model to
   better predict claims amounts? Explain your reasoning.
 \end{enumerate}
+
+    Part (B): Additional Variables for Enhanced Insurance Claims Prediction
+Property-Specific Variables Construction and Physical Characteristics
+Building Material Type (brick, wood, steel, concrete): Different
+materials have varying vulnerability to fire, water damage, and natural
+disasters. For example, wood frame houses are more susceptible to fire
+damage, while brick construction offers better resistance to wind
+damage. Roof Type and Age (shingle, tile, metal, flat; installation
+year): The roof serves as the primary protection against weather
+elements, and its age significantly affects structural integrity. Old or
+inappropriate roof types often lead to increased water damage claims.
+Year Built / Construction Era: Building codes, materials, and
+construction techniques vary significantly by historical era. Pre-1980s
+homes may have different electrical and plumbing standards that affect
+claim frequency and severity. Square Footage / Property Size: Larger
+properties have greater exposure to risk and higher replacement costs.
+The correlation is straightforward: more area equals more potential
+points of failure. Number of Stories: Multi-story buildings face
+different risk profiles, including fall hazards and increased structural
+complexity that can affect claim patterns. Property Condition and
+Maintenance Last Major Renovation Date: Recently updated properties
+typically experience fewer maintenance-related claims. Properties with
+old electrical, plumbing, and HVAC systems are more prone to system
+failures. Security Features (alarm systems, cameras, locks, lighting):
+Enhanced security measures reduce theft and vandalism claims. A
+quantifiable security score could be developed based on installed
+security features. Property Condition Score: Well-maintained properties
+consistently show fewer claims. This could be implemented through
+inspection-based ratings or self-reported maintenance indices.
+Environmental and Geographic Variables Climate and Weather Risk Climate
+Zone (humid subtropical, arid, temperate): Different climate zones
+create distinct risk profiles. Humid climates increase mold and moisture
+damage risk, while arid climates elevate fire risk potential. Average
+Annual Precipitation: Higher precipitation levels correlate directly
+with water damage claims. Seasonal precipitation patterns are
+particularly important for flood and storm damage prediction. Natural
+Disaster Risk Scores: This category includes earthquake risk zones based
+on seismic activity ratings, flood zone classifications using FEMA flood
+maps, hurricane and wind risk assessments based on historical storm
+patterns, and wildfire risk evaluations considering vegetation density
+and historical fire data. These factors are major drivers of
+catastrophic insurance claims. Neighborhood and Local Factors Crime Rate
+(property crime index): Higher crime areas consistently show increased
+rates of theft, vandalism, and break-in claims. This data should be
+analyzed at the ZIP code or census tract level for optimal granularity.
+Distance to Fire Station: Emergency response time directly affects fire
+damage severity. This variable can be quantified in minutes or miles to
+the nearest fire department facility. Distance to Coast/Water Bodies:
+Proximity to water increases exposure to flood, hurricane, and
+humidity-related risks, creating measurable patterns in claims data.
+Local Building Code Strictness: Areas with more stringent building codes
+typically have more resilient structures. This can be implemented as a
+rating system based on local construction requirements and enforcement
+standards. Economic and Demographic Variables Economic Indicators Local
+Median Income: Wealthier areas may feature better-maintained properties
+but simultaneously generate higher-value claims. This creates a dual
+effect where better maintenance practices compete with higher
+replacement costs. Property Value Appreciation Rate: Rapidly
+appreciating real estate markets may develop coverage gaps as property
+values outpace insurance coverage adjustments, creating underinsurance
+risks. Local Unemployment Rate: Economic stress can correlate with
+deferred property maintenance and potentially increased insurance fraud
+attempts. Demographic Factors Owner vs.~Tenant Occupied: Owner-occupied
+properties typically receive better maintenance and care. Rental
+properties often show different claim patterns, as renters may exercise
+less care while property owners are more invested in prevention
+measures. Primary vs.~Secondary Residence: Secondary homes such as
+vacation properties exhibit different risk profiles due to less frequent
+monitoring and seasonal occupancy patterns that can allow problems to
+develop undetected. Usage and Occupancy Variables Property Use Patterns
+Home Business Operation: Commercial activities conducted from
+residential properties increase both liability exposure and equipment
+damage risks. Examples include daycare centers, consulting offices, and
+small-scale manufacturing operations. Rental Income Generation (Airbnb,
+long-term rental): Higher occupant turnover rates increase wear, damage
+risk, and liability exposure. More frequent occupancy changes correlate
+with higher accident probabilities. Vacancy Rate/Duration: Vacant
+properties face elevated risks from vandalism, theft, and maintenance
+issues. Unoccupied properties tend to develop problems more rapidly due
+to lack of regular monitoring and immediate problem identification.
+Historical and Behavioral Variables Claims History Detail Types of
+Previous Claims (water, fire, theft, wind): Different claim types
+indicate specific property vulnerabilities and help identify recurring
+risk patterns. Properties showing susceptibility to certain damage types
+often continue exhibiting those vulnerabilities. Time Since Last Claim:
+Recent claims may indicate ongoing structural problems or statistical
+clustering of unfortunate events that could predict future claim
+likelihood. Claim Settlement Patterns: The distinction between quickly
+settled claims versus disputed claims may indicate different underlying
+risk profiles and customer behavior patterns. Policyholder Behavior
+Payment History (on-time vs.~late premium payments): Payment behavior
+correlates with overall financial stability, which in turn affects
+property maintenance quality. Financial stress often leads to deferred
+maintenance practices. Policy Shopping Frequency: Customers who
+frequently switch insurance providers may represent higher-risk profiles
+due to adverse selection effects, where higher-risk customers shop more
+frequently for coverage. Customer Service Interaction Frequency:
+Policyholders requiring frequent customer service interactions may
+demonstrate patterns that correlate with higher claim filing rates.
+Interaction and Non-Linear Terms Interaction Effects Age × Construction
+Type: The interaction between property age and construction materials
+creates significant risk variations. Older wood construction presents
+much higher risk profiles than older brick construction. Location ×
+Weather Risk: Urban coastal properties face substantially different risk
+combinations compared to rural coastal properties, requiring interaction
+term modeling. Coverage × Deductible: The relationship between coverage
+amounts and chosen deductible levels indicates risk tolerance and may
+predict claim behavior patterns. Non-Linear Transformations
+Log(Coverage): Insurance claims may not increase linearly with coverage
+amounts, suggesting logarithmic relationships may better capture the
+underlying dynamics. Age²: Property risk might increase exponentially
+rather than linearly after certain age thresholds, warranting quadratic
+modeling approaches. Premium/Coverage Ratio: This ratio serves as a
+risk-adjusted pricing indicator that may reveal important predictive
+patterns. External Data Integration Third-Party Data Sources Credit
+Score/Financial Stability Indicators: Financial stability demonstrates
+strong correlation with property maintenance quality. However,
+implementation must consider fair lending regulations and legal
+compliance requirements. Satellite/Aerial Imagery Analysis: Advanced
+applications include automated roof condition assessment, property
+maintenance evaluation, and vegetation proximity analysis. AI-powered
+image analysis technologies enable systematic risk assessment at scale.
+Weather Station Data: Real-time and historical weather pattern
+integration enables both current risk assessment and predictive seasonal
+forecasting capabilities. Implementation Strategy High Priority
+Variables (Immediate Impact) Natural disaster risk scores, property
+construction details, comprehensive claims history, and property
+condition indicators should be prioritized for immediate implementation
+due to their direct correlation with claim frequency and severity.
+Medium Priority Variables (Valuable but Complex) Neighborhood crime and
+economic data, weather and climate variables, property usage patterns,
+and interaction terms provide significant value but require more complex
+data integration and modeling approaches. Low Priority Variables
+(Supplementary Enhancement) Credit and behavioral indicators, satellite
+imagery analysis, and advanced economic indicators represent valuable
+additions but should be implemented after core variables are
+successfully integrated. Data Collection Strategies Application and
+Quote Stage Enhanced property questionnaires, third-party data provider
+integration, and systematic public records data mining can capture
+essential information during the initial customer interaction. Policy
+Term Maintenance Annual property surveys, smart home device integration,
+and periodic risk reassessment enable dynamic risk profile updates
+throughout the policy lifecycle. External Data Sources Government
+databases including FEMA, USGS, and Census Bureau data, commercial risk
+data providers, weather service APIs, and crime statistics databases
+provide comprehensive external data integration opportunities. Expected
+Model Performance Improvements Predictive Accuracy Enhancement Current
+models using limited variable sets typically achieve R-squared values
+between 60-80\%. Comprehensive variable integration could potentially
+increase predictive accuracy to 85-95\%, though diminishing returns
+apply as each additional variable contributes progressively less
+predictive power. Business Value Realization Better Risk Selection:
+Enhanced ability to identify and accurately price high-risk properties
+improves portfolio profitability. Fraud Detection: Comprehensive data
+enables identification of unusual patterns that may indicate fraudulent
+activity. Dynamic Pricing: Real-time risk-based pricing adjustments
+become feasible with enhanced data integration. Loss Prevention:
+Proactive risk mitigation recommendations can be developed based on
+comprehensive risk factor analysis. Implementation Considerations Data
+Availability: Not all proposed variables are available for every
+property, requiring robust missing data handling strategies. Data
+Quality: Third-party data sources require ongoing accuracy and
+timeliness validation to maintain model reliability. Model Complexity:
+Optimal balance must be maintained between predictive accuracy and model
+interpretability for regulatory and business requirements. Regulatory
+Compliance: Fair housing laws and anti-discrimination regulations
+constrain certain variable usage and require careful legal review.
+Cost-Benefit Analysis: Data acquisition costs must be weighed against
+improved prediction accuracy and resulting business value to ensure
+positive return on investment.
 
 
     % Add a bibliography block to the postdoc

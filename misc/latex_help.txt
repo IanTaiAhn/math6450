@@ -48,3 +48,22 @@ jupyter nbconvert --no-input --to pdf --template=two_column Math6450_Assignment1
 jupyter nbconvert --no-input --to latex Math6450_Assignment1_copy_for_pdf_render.ipynb
 
 jupyter nbconvert Math6450_Assignment2.ipynb --to latex --no-input
+
+
+
+
+Missing character: There is no ₃ in font [lmmono10-regular]:!
+Missing character: There is no ₄ in font [lmmono10-regular]:!
+Missing character: There is no ₅ in font [lmmono10-regular]:!
+Missing character: There is no ₃ in font [lmmono10-regular]:!
+Missing character: There is no ₄ in font [lmmono10-regular]:!
+Missing character: There is no ₅ in font [lmmono10-regular]:!
+Missing character: There is no ᵢ in font [lmmono10-regular]:!
+Missing character: There is no ₆ in font [lmmono10-regular]:!
+Missing character: There is no ε in font [lmmono10-regular]:!
+Missing character: There is no ∂ in font [lmmono10-regular]:!
+Missing character: There is no ₇ in font [lmmono10-regular]:!
+Missing character: There is no ∼ in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no 🎯 in font [lmmono10-regular]:!
+Missing character: There is no ✓ in font [lmmono10-regular]:!
+Missing character: There is no ⚠ in font [lmmono10-regular]:!

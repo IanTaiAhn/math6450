@@ -48,10 +48,11 @@
     \fi
 
     % UNICODE CHARACTER SUPPORT - FIX FOR MISSING CHARACTERS
-    % Add this section to handle Unicode characters in Verbatim environments
     \usepackage{newunicodechar}
-    
-    % Define replacements for problematic Unicode characters
+    \usepackage{textcomp}  % For additional symbols
+    \usepackage{amssymb}   % For mathematical symbols
+
+    % Your existing definitions
     \newunicodechar{ρ}{\ensuremath{\rho}}
     \newunicodechar{≈}{\ensuremath{\approx}}
     \newunicodechar{≤}{\ensuremath{\leq}}
@@ -63,9 +64,29 @@
     \newunicodechar{₀}{\ensuremath{_0}}
     \newunicodechar{₁}{\ensuremath{_1}}
     \newunicodechar{₂}{\ensuremath{_2}}
-    \newunicodechar{≠}{\ensuremath{\neq}}     % Not equal
-    \newunicodechar{✓}{\checkmark}            % Check mark
+    \newunicodechar{≠}{\ensuremath{\neq}}
+    \newunicodechar{✓}{\ensuremath{\checkmark}}
+    
+    % Additional subscripts from your error messages
+    \newunicodechar{₃}{\ensuremath{_3}}
+    \newunicodechar{₄}{\ensuremath{_4}}
+    \newunicodechar{₅}{\ensuremath{_5}}
+    \newunicodechar{₆}{\ensuremath{_6}}
+    \newunicodechar{₇}{\ensuremath{_7}}
+    \newunicodechar{ᵢ}{\ensuremath{_i}}
+
+    % Greek letters
+    \newunicodechar{ε}{\ensuremath{\varepsilon}}
+
+    % Mathematical symbols
+    \newunicodechar{∂}{\ensuremath{\partial}}
+    \newunicodechar{∼}{\ensuremath{\sim}}
+
+    % % Special symbols (these might need different approaches)
+    % \newunicodechar{🎯}{\textbullet}  % Fallback to bullet
+    % \newunicodechar{⚠}{\textwarning} % Warning symbol (requires textcomp)
     % END UNICODE CHARACTER SUPPORT
+
 
     \usepackage{fancyvrb} % verbatim replacement that allows latex
     \usepackage{grffile} % extends the file name processing of package graphics
