@@ -33,6 +33,8 @@ jupyter nbconvert assignments/Math6450_Assignment1.ipynb --to pdf --no-input
 jupyter nbconvert assignments/Math6450_Assignment1_copy_for_pdf_render.ipynb --to latex --no-input
 jupyter nbconvert Math6450_Assignment1_copy_for_pdf_render.ipynb --to latex --no-input
 
+!!!! I can exclude markdown!!!!
+jupyter nbconvert Math6450_Assignment2.ipynb --to latex --no-input --TemplateExporter.exclude_markdown=True
 xelatex *.tex
 
 0. Make sure venv is activated (work computer path --> C:\Users\n0308g\python_venv\venv\Scripts) No need on personal laptop
@@ -47,7 +49,7 @@ jupyter nbconvert assignments/Math6450_Assignment1.ipynb --to pdf --template two
 jupyter nbconvert --no-input --to pdf --template=two_column Math6450_Assignment1_copy_for_pdf_render.ipynb
 jupyter nbconvert --no-input --to latex Math6450_Assignment1_copy_for_pdf_render.ipynb
 
-jupyter nbconvert Math6450_Assignment2.ipynb --to latex --no-input
+jupyter nbconvert Math6450_Assignment2.ipynb --to latex --no-input --TemplateExporter.exclude_markdown=True
 
 
 
