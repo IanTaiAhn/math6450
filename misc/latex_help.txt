@@ -51,7 +51,8 @@ jupyter nbconvert --no-input --to latex Math6450_Assignment1_copy_for_pdf_render
 
 jupyter nbconvert Math6450_Assignment2.ipynb --to latex --no-input --TemplateExporter.exclude_markdown=True
 
-
+\fontsize{8.5pt}{8pt}\selectfont
+    \maketitle
 
 
 Missing character: There is no ₃ in font [lmmono10-regular]:!

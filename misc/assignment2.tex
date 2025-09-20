@@ -447,7 +447,7 @@
     
 
 \begin{document}
-\fontsize{6pt}{8pt}\selectfont
+\fontsize{6.5pt}{8pt}\selectfont
     \maketitle
     \textbf{1 Data Exploration}
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -483,8 +483,9 @@ Variable: premium
 Correlation coefficient: 0.793
     \end{Verbatim}
 
-    \centering
+    \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment2_files/Math6450_Assignment2_5_1.png}
+    \end{center}
     { \hspace*{\fill} \\}
     
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -524,8 +525,10 @@ premium:
   Assessment: Approximately symmetric
 
     \end{Verbatim}
-    \centering
+
+    \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment2_files/Math6450_Assignment2_7_1.png}
+    \end{center}
     { \hspace*{\fill} \\}
     
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -555,6 +558,10 @@ Claims = 5.2054 + 0.0679 × Coverage
 In mathematical notation:
 ŷ = 5.2054 + 0.0679x
 where ŷ = predicted claims, x = coverage
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
 
 (b) Interpretation of Slope Coefficient
 --------------------------------------------------
@@ -575,6 +582,10 @@ Example predictions:
 • Coverage = 150: Predicted Claims = 15.40
 • Coverage = 200: Predicted Claims = 18.80
 • Coverage = 250: Predicted Claims = 22.19
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
 
 (c) Coefficient of Determination (R²) Analysis
 --------------------------------------------------
@@ -597,11 +608,27 @@ Statistical Significance:
 • The relationship is statistically significant at the 5\% level.
     \end{Verbatim}
 
-    \centering
+    \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment2_files/Math6450_Assignment2_15_1.png}
-
+    \end{center}
     { \hspace*{\fill} \\}
+    
     \begin{Verbatim}[commandchars=\\\{\}]
+
+
+Summary Table:
+         Metric  Value                                 Interpretation
+ Intercept (β₀) 5.2054              Expected claims when coverage = 0
+     Slope (β₁) 0.0679 Change in claims per unit increase in coverage
+             R² 0.5784                    57.8\% of variance explained
+Correlation (r) 0.7605                    Linear association strength
+           RMSE 4.1850                       Average prediction error
+   Observations   1340                                    Sample size
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+
 Key Findings Summary:
 • Regression equation: Claims = 5.2054 + 0.0679 × Coverage
 • Slope interpretation: Each additional unit of coverage is associated with a
@@ -699,9 +726,13 @@ Residual Std Deviation    2.7938
              Variables         5
     \end{Verbatim}
 
-    \centering
+    \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment2_files/Math6450_Assignment2_23_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     \begin{Verbatim}[commandchars=\\\{\}]
+
 Key Results Summary:
 ✓ Multiple regression equation fitted with 5 explanatory variables
 ✓ Model explains 81.3\% of variance in claims (R² = 0.8130)
@@ -784,6 +815,10 @@ current claims.
 • Properties with prior claims have significantly higher current claims than
 those without.
 • The width of the interval (0.4748) indicates the precision of our estimate.
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
 
 (c) Overall F-test for Model Significance
 Overall F-test for Regression Model:
@@ -821,9 +856,14 @@ R² = 0.8130 (81.3\% of variance explained)
 The model performs well in predicting claims.
     \end{Verbatim}
 
-    \centering
+    \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment2_files/Math6450_Assignment2_31_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     \begin{Verbatim}[commandchars=\\\{\}]
+
+
 Summary of All Statistical Tests:
                     Test             Statistic  p-value         Conclusion
 Age Coefficient (t-test)           t = 13.4010   0.0000        Significant
@@ -892,6 +932,9 @@ claims.
 Statistical Significance:
 • The type coefficient IS statistically significant (p = 0.0000 < 0.05)
 • We can be confident that property type has a real effect on claims.
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
 
 (c) Partial F-test for Model Improvement
 Model Comparison (same sample size: 1340):
@@ -931,8 +974,10 @@ Model Improvement Assessment:
 • Adjusted R² increased from 0.8123 to 0.8254
 • The improvement in adjusted R² suggests the added variables are worthwhile
     \end{Verbatim}
-    \centering
+
+    \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment2_files/Math6450_Assignment2_39_1.png}
+    \end{center}
     { \hspace*{\fill} \\}
     
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -1014,6 +1059,9 @@ than commercial claims.
 Practical Business Interpretation:
 • Higher deductibles are associated with lower claims for both property types
 • This association is STRONGER for residential properties
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
 
 (c) Statistical Significance Test for Interaction Term
 Hypothesis Test for Interaction Term:
@@ -1046,8 +1094,10 @@ property types.
 • The interval contains zero - the direction of the interaction effect is
 uncertain
     \end{Verbatim}
-    \centering
+
+    \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment2_files/Math6450_Assignment2_47_1.png}
+    \end{center}
     { \hspace*{\fill} \\}
     
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -1085,8 +1135,10 @@ Mean residuals by fitted value terciles:
 • Maximum deviation from zero: 0.0800 (suggests linear relationship is
 appropriate)
     \end{Verbatim}
-    \centering
+
+    \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment2_files/Math6450_Assignment2_51_1.png}
+    \end{center}
     { \hspace*{\fill} \\}
     
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -1116,10 +1168,12 @@ Kurtosis interpretation: heavy-tailed
 
 Overall Normality Assessment: Assumption appears to be violated
     \end{Verbatim}
-    \centering
-    \adjustimage{max size={0.8\linewidth}{0.8\paperheight}}{Math6450_Assignment2_files/Math6450_Assignment2_53_1.png}
-    { \hspace*{\fill} \\}
 
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment2_files/Math6450_Assignment2_53_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     \begin{Verbatim}[commandchars=\\\{\}]
 
 (c) Outliers and Influential Points Analysis
@@ -1154,8 +1208,10 @@ Highest Cooks: Observation 315
   Leverage: 0.0072
   Cook's distance: 0.0331
     \end{Verbatim}
-    \centering
+
+    \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment2_files/Math6450_Assignment2_55_1.png}
+    \end{center}
     { \hspace*{\fill} \\}
     
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -1332,8 +1388,10 @@ Alternative Recommendations by Use Case:
    • For balanced approach: Model B
    • For regulatory reporting: Model A (simplest, most interpretable)
     \end{Verbatim}
-    \centering
+
+    \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment2_files/Math6450_Assignment2_60_1.png}
+    \end{center}
     { \hspace*{\fill} \\}
     \textbf{9 Practical Application}
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -1416,8 +1474,10 @@ Risk Assessment:
 Risk Level: Above Average
 This property's predicted claims are higher than typical for the portfolio
     \end{Verbatim}
-    \centering
+
+    \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment2_files/Math6450_Assignment2_63_1.png}
+    \end{center}
     { \hspace*{\fill} \\}
     
     \begin{Verbatim}[commandchars=\\\{\}]
