@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[11pt, twocolumn]{article}
 
     \usepackage[breakable]{tcolorbox}
     \usepackage{parskip} % Stop auto-indenting (to mimic markdown behaviour)
@@ -413,98 +413,122 @@
     
 
     
-    Task as Hand: Your task is to use this data to model the AQI of Weber
-County on a daily, weekly, or monthly basis. If you choose to aggregate
-the data into weekly or monthly values, you must justify the reason for
-doing so.
-
-I will remove this sections, and the section headers
-instructions\ldots{}
-
-    \section{Exploratory Data Analysis
+    \subparagraph{Exploratory Data Analysis
 (EDA):}\label{exploratory-data-analysis-eda}
 
-\subparagraph{Provide insights into the dataset based on your initial
-analysis.}\label{provide-insights-into-the-dataset-based-on-your-initial-analysis.}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-Check for missing/na values:
-AQI     0
-Year    0
-dtype: int64
-    \end{Verbatim}
+    The data was loaded in and filtered to remove all columns except for
+State Name, and county Name. Then additional steps were taken to only
+grab rows with Utah, and Weber in their state and county name. 2022 had
+365 rows, 2023 had 365 rows, and 2024 had 366 rows. This meant that
+there was a valid data entry for every single day, and this was proven
+to be true since there were no missing or NA values in these datasets.
 
     \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_6_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
-    \begin{Verbatim}[commandchars=\\\{\}]
-There is a pattern each year showing that there is some seasonlity or trends in
-AQI.
-    \end{Verbatim}
+    The daily AQI shows that there is quite a bit of fluctuations day to
+day, and that each year follows a similar pattern.
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_8_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_10_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
-    \section{Reason for Aggregation (if
+    Using the monthly average of the AQI shows a smoother line and a bigger
+picture view to how the data has changed over the years. However, it
+smoothed the line too much and it may not be able to capture short-term
+AQI fluctuations and changes.
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_12_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Using a weekly average for AQI seems to be the most promising due to the
+available data, and the graph isn't so smoothed over like it was when
+using monthly average AQI. This seems to be a nice middleground between
+daily, and monthly AQI averaging.
+
+    \subparagraph{Reason for Aggregation (if
 applicable):}\label{reason-for-aggregation-if-applicable}
 
-Explain why you chose to aggregate the data (or not), and describe how
-you performed this aggregation if it applies.
+    Upon initial data exploration, while there is enough data for daily time
+series modeling, the distribution was skewed right, and the daily trends
+were quite jagged. So, when graphing both monthly, and weekly averages
+the monthly data looked a little to smooth, and weekly data looked to be
+the most promising since there are still obvious seasonly patterns and
+the data didn't look so smoothed over it wouldn't capture other trends.
 
-    \section{Transformations:}\label{transformations}
+So, in an attempt to capture as much AQI patterns as possible this
+weekly model will capture less noise than a daily one, and more detail
+than a monthly one.
 
-Discuss whether you applied any transformations (e.g., log, square root)
-to the data and why, or explain why no transformation was needed.
+The aggregation performed gathers the weekly AQI for each dataset, and
+uses that as the new time series column.
 
-    \section{Seasonal Patterns:}\label{seasonal-patterns}
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_17_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    The daily AQI variance is a little skewed to the right, and so
+aggregation will be a good idea for making the variance more normal.
 
-Identify any seasonal patterns in the AQI data. If no seasonality is
-present, provide visualizations to support this conclusion.
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_19_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    The variance is not as prevalent, but still there, so we will move to
+log transformations to ensure the data is staionary.
 
-    \section{Autocorrelation:}\label{autocorrelation}
+    \subparagraph{Transformations:}\label{transformations}
 
-Analyze significant autocorrelations in the data and explain any
-patterns observed in the lag values.
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_22_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_23_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+ADF Test - Weekly AQI AVG w/ Log Transformation
+ADF Statistic: -1.1609283961297714
+p-value: 0.6901735830954657
+    \end{Verbatim}
 
-    Correlation Coefficients:
+    ADF Test - Weekly AQI AVG w/ Log Transformation ADF Statistic:
+-1.1609283961297714 p-value: 0.6901735830954657
 
-Calculate correlation coefficients for selected lag values and provide
-scatter plots to visualize these relationships.
+These results show that the aggregation and transformation wasn't enough
+to make my series data stationary, so we will try first differencing
+before we look at seasonl patterns.
 
-    Data Splitting:
+    \subparagraph{Seasonal Patterns:}\label{seasonal-patterns}
 
-Split the data, using the last 12 values for model testing.
+    \subparagraph{Autocorrelation:}\label{autocorrelation}
 
-    Model Selection:
+    \subparagraph{Correlation Coefficients:}\label{correlation-coefficients}
 
-Try different models and describe the criteria used to select your final
-model.
+    \subparagraph{Data Splitting:}\label{data-splitting}
 
-    Model Parameters and Diagnostics:
+    \subparagraph{Model Selection:}\label{model-selection}
 
-Explain the statistical significance of the model parameters and any
-diagnostic tests performed to validate the model.
+    \subparagraph{Model Parameters and
+Diagnostics:}\label{model-parameters-and-diagnostics}
 
-    Final Model Equation:
+    \subparagraph{Final Model Equation:}\label{final-model-equation}
 
-Present the equation of your final model.
+    \subparagraph{Forecasting:}\label{forecasting}
 
-    Forecasting:
+    \subparagraph{Model Performance:}\label{model-performance}
 
-Forecast the AQI for the last 12 values, including confidence intervals.
-
-    Model Performance:
-
-Compute the error of the model's performance on the test data.
-
-    Conclusion:
-
-Summarize your findings and reflect on the forecasting accuracy and the
-AQI trends observed.
+    \subparagraph{Conclusion:}\label{conclusion}
 
 
     % Add a bibliography block to the postdoc
