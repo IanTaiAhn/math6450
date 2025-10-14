@@ -1,4 +1,4 @@
-\documentclass[11pt, twocolumn]{article}
+\documentclass[11pt]{article}
 
     \usepackage[breakable]{tcolorbox}
     \usepackage{parskip} % Stop auto-indenting (to mimic markdown behaviour)
@@ -429,24 +429,31 @@ to be true since there were no missing or NA values in these datasets.
     { \hspace*{\fill} \\}
     
     The daily AQI shows that there is quite a bit of fluctuations day to
-day, and that each year follows a similar pattern.
+day, and that each year follows a similar pattern. This means there
+seasonality is present in this data.
 
     \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_10_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
-    Using the monthly average of the AQI shows a smoother line and a bigger
+    TODO \textbar{} REVIEW
+
+Using the monthly average of the AQI shows a smoother line and a bigger
 picture view to how the data has changed over the years. However, it
 smoothed the line too much and it may not be able to capture short-term
-AQI fluctuations and changes.
+AQI fluctuations and changes. Smoothing out the graph also shows the
+very obvious point where we have a seasonal trend. The month July
+consistently jumps up in AQI.
 
     \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_12_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
-    Using a weekly average for AQI seems to be the most promising due to the
+    TODO \textbar{} REVIEW
+
+Using a weekly average for AQI seems to be the most promising due to the
 available data, and the graph isn't so smoothed over like it was when
 using monthly average AQI. This seems to be a nice middleground between
 daily, and monthly AQI averaging.
@@ -454,7 +461,9 @@ daily, and monthly AQI averaging.
     \subparagraph{Reason for Aggregation (if
 applicable):}\label{reason-for-aggregation-if-applicable}
 
-    Upon initial data exploration, while there is enough data for daily time
+    TODO \textbar{} REVIEW
+
+Upon initial data exploration, while there is enough data for daily time
 series modeling, the distribution was skewed right, and the daily trends
 were quite jagged. So, when graphing both monthly, and weekly averages
 the monthly data looked a little to smooth, and weekly data looked to be
@@ -469,7 +478,7 @@ The aggregation performed gathers the weekly AQI for each dataset, and
 uses that as the new time series column.
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_17_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_16_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -477,43 +486,251 @@ uses that as the new time series column.
 aggregation will be a good idea for making the variance more normal.
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_19_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_18_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    The monthly AQI data shows a similar right-skewed pattern, but the tail
+is a little smaller now.
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_20_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     The variance is not as prevalent, but still there, so we will move to
-log transformations to ensure the data is staionary.
+log transformations to ensure the data is stationary.
 
     \subparagraph{Transformations:}\label{transformations}
 
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_22_0.png}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
     \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_23_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
-    \begin{Verbatim}[commandchars=\\\{\}]
-ADF Test - Weekly AQI AVG w/ Log Transformation
-ADF Statistic: -1.1609283961297714
-p-value: 0.6901735830954657
-    \end{Verbatim}
+    The distributuion looks quite normal now after log transformation.
 
-    ADF Test - Weekly AQI AVG w/ Log Transformation ADF Statistic:
--1.1609283961297714 p-value: 0.6901735830954657
-
-These results show that the aggregation and transformation wasn't enough
-to make my series data stationary, so we will try first differencing
-before we look at seasonl patterns.
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_25_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    The log transformed weekly data also shows a more normal variance when
+plotted.
 
     \subparagraph{Seasonal Patterns:}\label{seasonal-patterns}
 
+    Well it passed after log transforming so we will still check for
+seasonality.
+
+    We first noticed of the seasonality of the data in the Daily AQI graph,
+and it was made clear there was seasonality when graphing the aggregated
+monthly avg AQI dataset. In order to get rid of this seasonality seasonl
+differencing will be needed to ensure this datat set is staionary and
+ready for modeling.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+ADF Test - Monthly AQI AVG without Log Transformation
+ADF Statistic: -3.350751238120374
+p-value: 0.012756803233213314
+ADF Test - Monthly AQI AVG w/ Log Transformation
+ADF Statistic: -3.4826220890374864
+p-value: 0.008444774199784521
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+ADF Test - Weekly AQI AVG without Log Transformation
+ADF Statistic: -3.2934795957089746
+p-value: 0.015172464527294545
+ADF Test - Weekly AQI AVG w/ Log Transformation
+ADF Statistic: -3.1750361754617558
+p-value: 0.021475924955530693
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_34_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    The seasonal decomposition shows there are several spikes in data here
+and there, but most importantly there is oscillating behavior in the
+visuals which means air quality does suffer from seasonality.
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_36_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Since the trend and seasonality of this data was so obvious when looking
+at the values graphed, I wanted to also see what the monthly data looked
+like, and it is much more obvious that there is a major trend going on
+in this data.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+weekly aqi adf first difference p-value: 6.003770326620934e-20
+monthly aqi adf first difference p-value: 7.186409585209823e-08
+
+weekly aqi-log adf first difference p-value: 2.4132826548746984e-19
+monthly aqi-log adf first difference p-value: 1.6924166308827316e-08
+    \end{Verbatim}
+
+    Comparing the ADF p-value for the weekly aqi/logged-aqi values and the
+monthly aqi/logged-aqi values show that the p-value is very small
+meaning were making the data more stationarity.
+
     \subparagraph{Autocorrelation:}\label{autocorrelation}
 
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_41_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    TODO
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_43_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    TODO
+
     \subparagraph{Correlation Coefficients:}\label{correlation-coefficients}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_46_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    🧠 How to Interpret the Output
+
+Strong positive correlation (r close to +1): Suggests that AQI values
+are similar across the lag --- good candidate for AR terms.
+
+Strong negative correlation (r close to -1): Indicates inverse
+relationship --- may suggest MA terms or seasonal effects.
+
+Weak correlation (r near 0): Lag may not be useful for modeling.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+Weekly AQI
+----------
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_48_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+ Lag  Pearson\_r
+   1   0.516866
+   2   0.443118
+   4   0.377877
+  12  -0.107388
+  26  -0.133567
+  52   0.399284
+
+Weekly Log AQI
+--------------
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_48_3.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+ Lag  Pearson\_r
+   1   0.521476
+   2   0.459967
+   4   0.387364
+  12  -0.085229
+  26  -0.182699
+  52   0.417048
+
+Monthly AQI
+-----------
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_48_5.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+ Lag  Pearson\_r
+   1   0.500219
+   2   0.077476
+   6  -0.261205
+  12   0.558626
+
+Monthly Log AQI
+---------------
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_48_7.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+ Lag  Pearson\_r
+   1   0.473195
+   2   0.077796
+   6  -0.271689
+  12   0.509109
+    \end{Verbatim}
+
+    🔍 What This Code Does
+
+Calculates Pearson correlation between AQI and its lagged versions
+using:
+
+df{[}`AQI'{]}.corr(df{[}`AQI'{]}.shift(lag))
+
+Plots scatter plots using Seaborn for each lag --- showing whether past
+AQI values predict current AQI.
+
+Prints a table of correlations for each dataset.
+
+Works separately for weekly and monthly data, with their own appropriate
+lag periods.
+
+    📊 How to Interpret Results
+
+Correlation (r) Meaning Interpretation
+
+r \textgreater{} 0.7 Strong positive AQI is highly persistent → include
+AR terms
+
+0.3 \textless{} r ≤ 0.7 Moderate Some serial dependence → maybe AR(1) or
+AR(2)
+
+r \textless{} 0.3 Weak Little predictive power from that lag
+
+Negative r Inverse relationship Could suggest mean reversion or
+oscillation
+
+    ✅ Example Output Summary (hypothetical) Weekly AQI ----------- Lag
+Pearson\_r
+
+1 0.82
+
+2 0.76
+
+12 0.58
+
+26 0.35
+
+52 0.67
+
+➡ Interpretation:
+
+AQI has strong persistence (AR(1--2)).
+
+There's a seasonal correlation at lag 52 (annual). → Justify using
+SARIMA(p,d,q)(P,D,Q,52) with p≈2, P≈1.
 
     \subparagraph{Data Splitting:}\label{data-splitting}
 
