@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[11pt, twocolumn]{article}
 
     \usepackage[breakable]{tcolorbox}
     \usepackage{parskip} % Stop auto-indenting (to mimic markdown behaviour)
@@ -437,11 +437,9 @@ seasonality is present in this data.
     \end{center}
     { \hspace*{\fill} \\}
     
-    TODO \textbar{} REVIEW
-
-Using the monthly average of the AQI shows a smoother line and a bigger
-picture view to how the data has changed over the years. However, it
-smoothed the line too much and it may not be able to capture short-term
+    Using the monthly average of the AQI shows a smoother line and a bigger
+picture view to how the data has changed over the years. However, it can
+smooth the line too much and it may not be able to capture short-term
 AQI fluctuations and changes. Smoothing out the graph also shows the
 very obvious point where we have a seasonal trend. The month July
 consistently jumps up in AQI.
@@ -451,31 +449,26 @@ consistently jumps up in AQI.
     \end{center}
     { \hspace*{\fill} \\}
     
-    TODO \textbar{} REVIEW
-
-Using a weekly average for AQI seems to be the most promising due to the
-available data, and the graph isn't so smoothed over like it was when
-using monthly average AQI. This seems to be a nice middleground between
-daily, and monthly AQI averaging.
+    Looking at the weekly changes in AQI shows that there seems to be some
+seasonality and trends in the data, but we can see short term
+fluctuations as well. This may be an applicable middle ground since the
+lines aren't as smooth as they are in the monthly AQI plot.
 
     \subparagraph{Reason for Aggregation (if
 applicable):}\label{reason-for-aggregation-if-applicable}
 
-    TODO \textbar{} REVIEW
-
-Upon initial data exploration, while there is enough data for daily time
+    Upon initial data exploration, while there is enough data for daily time
 series modeling, the distribution was skewed right, and the daily trends
 were quite jagged. So, when graphing both monthly, and weekly averages
 the monthly data looked a little to smooth, and weekly data looked to be
 the most promising since there are still obvious seasonly patterns and
 the data didn't look so smoothed over it wouldn't capture other trends.
 
-So, in an attempt to capture as much AQI patterns as possible this
-weekly model will capture less noise than a daily one, and more detail
-than a monthly one.
+So, in an attempt to capture as much AQI patterns as possible this the
+weekly and monthly data will be used to compare and contrast results.
 
-The aggregation performed gathers the weekly AQI for each dataset, and
-uses that as the new time series column.
+This means that from the daily AQI data we will aggregate the weekly and
+monthly means for analyzing, and AQI forcasting.
 
     \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_16_0.png}
@@ -548,6 +541,17 @@ p-value: 0.021475924955530693
     \end{Verbatim}
 
     \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_32_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    We can interpret the adf statistic as the more negative, the more
+evidence there is that the data is stationary. A smaller p-value means
+that there is high evidence we can reject the null resulting in a
+stationary time series. Both of these numbers are low so we can assume
+we have stationary time series data.
+
+    \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_34_0.png}
     \end{center}
     { \hspace*{\fill} \\}
@@ -566,13 +570,15 @@ at the values graphed, I wanted to also see what the monthly data looked
 like, and it is much more obvious that there is a major trend going on
 in this data.
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-weekly aqi adf first difference p-value: 6.003770326620934e-20
-monthly aqi adf first difference p-value: 7.186409585209823e-08
-
-weekly aqi-log adf first difference p-value: 2.4132826548746984e-19
-monthly aqi-log adf first difference p-value: 1.6924166308827316e-08
-    \end{Verbatim}
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_38_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    We knew that there was seasonality in the data so by taking the season
+first difference we have adf stats that are more negative, and p-values
+that are even smaller, showing that the data has significant evidence
+that it is stationary.
 
     Comparing the ADF p-value for the weekly aqi/logged-aqi values and the
 monthly aqi/logged-aqi values show that the p-value is very small
@@ -581,156 +587,79 @@ meaning were making the data more stationarity.
     \subparagraph{Autocorrelation:}\label{autocorrelation}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_41_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_42_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
-    TODO
+    The lags show that at about lag 8, we start to see a reverse of
+direction in correlation. This must mean that as it looks back further
+in the year, since the weather changes this also changes AQI.
+
+The PACF graph starts high, and after 1 lag has a steep drop off and
+then tails off with no clear pattern. This can be interpreted as after 1
+lag, there isn't a direct strong influence on the weekly AQI values.
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_43_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_44_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
-    TODO
+    The monthly ACF graphs show a similar pattern to the weekly ACF graphs.
+There is usually a seasonal pattern that can be explained by the
+changing of the seasons showing that there is a correlation effect on
+AQI from the seasonal changes.
+
+The monthly PACF graph also shows similar results to the weekly PACF
+plot results because of the immediate steep drop off on lag 1, and then
+there is no clear pattern. This confirms the verdict above that there is
+no strong and direct influence from earlier months once the 1st month is
+accounted for.
 
     \subparagraph{Correlation Coefficients:}\label{correlation-coefficients}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_46_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_47_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
-    🧠 How to Interpret the Output
-
-Strong positive correlation (r close to +1): Suggests that AQI values
-are similar across the lag --- good candidate for AR terms.
-
-Strong negative correlation (r close to -1): Indicates inverse
-relationship --- may suggest MA terms or seasonal effects.
-
-Weak correlation (r near 0): Lag may not be useful for modeling.
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-
-Weekly AQI
-----------
-    \end{Verbatim}
-
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_48_1.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_47_1.png}
     \end{center}
     { \hspace*{\fill} \\}
     
-    \begin{Verbatim}[commandchars=\\\{\}]
- Lag  Pearson\_r
-   1   0.516866
-   2   0.443118
-   4   0.377877
-  12  -0.107388
-  26  -0.133567
-  52   0.399284
-
-Weekly Log AQI
---------------
-    \end{Verbatim}
-
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_48_3.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_47_2.png}
     \end{center}
     { \hspace*{\fill} \\}
     
-    \begin{Verbatim}[commandchars=\\\{\}]
- Lag  Pearson\_r
-   1   0.521476
-   2   0.459967
-   4   0.387364
-  12  -0.085229
-  26  -0.182699
-  52   0.417048
-
-Monthly AQI
------------
-    \end{Verbatim}
-
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_48_5.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_47_3.png}
     \end{center}
     { \hspace*{\fill} \\}
     
-    \begin{Verbatim}[commandchars=\\\{\}]
- Lag  Pearson\_r
-   1   0.500219
-   2   0.077476
-   6  -0.261205
-  12   0.558626
-
-Monthly Log AQI
----------------
-    \end{Verbatim}
-
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_48_7.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_47_4.png}
     \end{center}
     { \hspace*{\fill} \\}
     
-    \begin{Verbatim}[commandchars=\\\{\}]
- Lag  Pearson\_r
-   1   0.473195
-   2   0.077796
-   6  -0.271689
-  12   0.509109
-    \end{Verbatim}
+    The weekly correlation shows seasonality due to what I'd assume literal
+seasons, like fall, winter, summer, and spring. It makes sense that on a
+lag of 1, there is a positive correlation because it is still within the
+season. However, looking at lags 12, and 26, that is comparing data to a
+different season which causes a negative correlation reversing the
+correlation. I can say since I start this lag in January, 26 weeks ago
+from January is in the summer, June or July, so it makes sense the lag
+would calculate a negative correlation.
 
-    🔍 What This Code Does
+Looking at the monthly data pretty much confirms this as well, since
+looking at lag 6 shows a negative correlation with the current value
+meaning winter is colder than summer. So, we can confirm that there is
+correlation and seasonality in this data, and we will now be able to
+better select a model to forecast the AQI.
 
-Calculates Pearson correlation between AQI and its lagged versions
-using:
-
-df{[}`AQI'{]}.corr(df{[}`AQI'{]}.shift(lag))
-
-Plots scatter plots using Seaborn for each lag --- showing whether past
-AQI values predict current AQI.
-
-Prints a table of correlations for each dataset.
-
-Works separately for weekly and monthly data, with their own appropriate
-lag periods.
-
-    📊 How to Interpret Results
-
-Correlation (r) Meaning Interpretation
-
-r \textgreater{} 0.7 Strong positive AQI is highly persistent → include
-AR terms
-
-0.3 \textless{} r ≤ 0.7 Moderate Some serial dependence → maybe AR(1) or
-AR(2)
-
-r \textless{} 0.3 Weak Little predictive power from that lag
-
-Negative r Inverse relationship Could suggest mean reversion or
-oscillation
-
-    ✅ Example Output Summary (hypothetical) Weekly AQI ----------- Lag
-Pearson\_r
-
-1 0.82
-
-2 0.76
-
-12 0.58
-
-26 0.35
-
-52 0.67
-
-➡ Interpretation:
-
-AQI has strong persistence (AR(1--2)).
-
-There's a seasonal correlation at lag 52 (annual). → Justify using
-SARIMA(p,d,q)(P,D,Q,52) with p≈2, P≈1.
+Comparing the pearson\_r scores with the plotted ACF graph shows they
+both agree with each other reinforcing that correlation and seasonality
+is present in this data due to changing seasons.
 
     \subparagraph{Data Splitting:}\label{data-splitting}
 
