@@ -433,7 +433,7 @@ day, and that each year follows a similar pattern. This means there
 seasonality is present in this data.
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_10_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_8_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -445,7 +445,7 @@ very obvious point where we have a seasonal trend. The month July
 consistently jumps up in AQI.
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_12_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_10_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -471,7 +471,7 @@ This means that from the daily AQI data we will aggregate the weekly and
 monthly means for analyzing, and AQI forcasting.
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_16_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_14_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -479,7 +479,7 @@ monthly means for analyzing, and AQI forcasting.
 aggregation will be a good idea for making the variance more normal.
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_18_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_16_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -487,7 +487,7 @@ aggregation will be a good idea for making the variance more normal.
 is a little smaller now.
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_20_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_18_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -497,14 +497,14 @@ log transformations to ensure the data is stationary.
     \subparagraph{Transformations:}\label{transformations}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_23_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_21_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     The distributuion looks quite normal now after log transformation.
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_25_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_23_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -522,26 +522,8 @@ monthly avg AQI dataset. In order to get rid of this seasonality seasonl
 differencing will be needed to ensure this datat set is staionary and
 ready for modeling.
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-ADF Test - Monthly AQI AVG without Log Transformation
-ADF Statistic: -3.350751238120374
-p-value: 0.012756803233213314
-ADF Test - Monthly AQI AVG w/ Log Transformation
-ADF Statistic: -3.4826220890374864
-p-value: 0.008444774199784521
-    \end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-ADF Test - Weekly AQI AVG without Log Transformation
-ADF Statistic: -3.2934795957089746
-p-value: 0.015172464527294545
-ADF Test - Weekly AQI AVG w/ Log Transformation
-ADF Statistic: -3.1750361754617558
-p-value: 0.021475924955530693
-    \end{Verbatim}
-
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_32_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_28_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -552,7 +534,7 @@ stationary time series. Both of these numbers are low so we can assume
 we have stationary time series data.
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_34_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_31_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -561,7 +543,7 @@ and there, but most importantly there is oscillating behavior in the
 visuals which means air quality does suffer from seasonality.
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_36_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_33_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -571,7 +553,7 @@ like, and it is much more obvious that there is a major trend going on
 in this data.
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_38_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_35_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -587,7 +569,7 @@ meaning were making the data more stationarity.
     \subparagraph{Autocorrelation:}\label{autocorrelation}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_42_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_39_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -600,7 +582,7 @@ then tails off with no clear pattern. This can be interpreted as after 1
 lag, there isn't a direct strong influence on the weekly AQI values.
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_44_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_41_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -618,27 +600,27 @@ accounted for.
     \subparagraph{Correlation Coefficients:}\label{correlation-coefficients}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_47_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_44_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_47_1.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_44_1.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_47_2.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_44_2.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_47_3.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_44_3.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_47_4.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_44_4.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -663,16 +645,150 @@ is present in this data due to changing seasons.
 
     \subparagraph{Data Splitting:}\label{data-splitting}
 
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_47_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     \subparagraph{Model Selection:}\label{model-selection}
+
+    Weekly:
+
+SARIMA(1,0,0)(1,1,0){[}52{]} - This is also quite good.
+
+SARIMA(1,1,1)(1,1,1){[}52{]} - might have been the best weekly
+predictions
+
+SARIMA(2,1,1)(1,1,1){[}52{]} or SARIMA(1,1,2)(1,1,1){[}52{]} - try
+adding another AR or MA term \textbar{} \textbar\textbar{} Did alright
+This one might have been for forecasting btbh. This one, or the simpler
+(1,1,1)(1,1,1,{[}52{]})\ldots.
+
+SARIMA(1,1,1)(2,1,1){[}52{]} or SARIMA(1,1,1)(1,1,2){[}52{]} - explore
+richer seasonal structure CURRENT \textbar\textbar{} this did alright,
+kind of bad tbh
+
+SARIMA(0,1,1)(0,1,1){[}52{]} - simpler model (sometimes less is more)
+\textbar{} equally as bad nearly
+
+Monthly:
+
+SARIMA(2,0,0)(1,0,0){[}12{]} - add another non-seasonal AR lag
+\textbar{} BAD
+
+SARIMA(1,0,1)(1,0,0){[}12{]} - add MA component \textbar{}
+\textbar\textbar{} The normal monthly was bad, but the Monthly LOG was
+good. Best for LOG
+
+SARIMA(1,0,0)(2,0,0){[}12{]} or SARIMA(1,0,0)(1,0,1){[}12{]} - richer
+seasonal terms \textbar{} CURRENT \textbar\textbar{} awful. infinite
+upwards bye bye.
+
+SARIMA(1,1,1)(1,1,1){[}12{]} - Log did ight, but the non-log was crap.
+Best for non log.
+
+    I tested different p, d, q, P, D, and Q values for the SARIMAX model,
+and made decisions based on the ACF/PACF plots and how stationary my
+data was. What I found was that taking the difference and seasonal
+difference impacted all the models except for the logged aqi positively.
+Also, setting p/P and q/Q to a value of 1 also showed better forecasting
+and results. These values set to 1 helped the model capture short-term
+autocerrlation which we saw a little bit of in the ACF plots, and the
+seasonal trends were apparent from graphed data so both p/P and q/Q
+helped the model perform well.
 
     \subparagraph{Model Parameters and
 Diagnostics:}\label{model-parameters-and-diagnostics}
 
-    \subparagraph{Final Model Equation:}\label{final-model-equation}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+<Figure size 1400x800 with 0 Axes>
+    \end{Verbatim}
 
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_53_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+<Figure size 1400x800 with 0 Axes>
+    \end{Verbatim}
+
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_53_3.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+<Figure size 1400x800 with 0 Axes>
+    \end{Verbatim}
+
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_53_5.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_53_6.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     \subparagraph{Forecasting:}\label{forecasting}
 
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_55_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     \subparagraph{Model Performance:}\label{model-performance}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_57_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subparagraph{Residual Analysis}\label{residual-analysis}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_59_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subparagraph{Final Model Equation:}\label{final-model-equation}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+
+Weekly AQI:
+  SARIMA(1, 1, 1) x (1, 1, 1, 52)
+  Notation: SARIMA(p=1, d=1, q=1) x (P=1, D=1, Q=1, s=52)
+  Model: (1 - φ₁B)(1 - Φ₁B\^{}52)(1 - B)(1 - B\^{}52)Yₜ = (1 + θ₁B)(1 + Θ₁B\^{}52)εₜ
+
+Weekly Log AQI:
+  SARIMA(1, 1, 1) x (1, 1, 1, 52)
+  Notation: SARIMA(p=1, d=1, q=1) x (P=1, D=1, Q=1, s=52)
+  Model: (1 - φ₁B)(1 - Φ₁B\^{}52)(1 - B)(1 - B\^{}52)Yₜ = (1 + θ₁B)(1 + Θ₁B\^{}52)εₜ
+
+Monthly AQI:
+  SARIMA(1, 1, 1) x (1, 1, 1, 12)
+  Notation: SARIMA(p=1, d=1, q=1) x (P=1, D=1, Q=1, s=12)
+  Model: (1 - φ₁B)(1 - Φ₁B\^{}12)(1 - B)(1 - B\^{}12)Yₜ = (1 + θ₁B)(1 + Θ₁B\^{}12)εₜ
+
+Monthly Log AQI:
+  SARIMA(1, 0, 1) x (1, 0, 0, 12)
+  Notation: SARIMA(p=1, d=0, q=1) x (P=1, D=0, Q=0, s=12)
+  Model: (1 - φ₁B)(1 - Φ₁B\^{}12)(1 - B)(1 - B\^{}12)Yₜ = (1 + θ₁B)(1 + Θ₁B\^{}12)εₜ
+
+Best models by different criteria:
+  Lowest RMSE: Monthly AQI (RMSE: 6.0475)
+  Lowest MAE: Monthly AQI (MAE: 5.0463)
+  Lowest MAPE: Monthly AQI (MAPE: 9.56\%)
+  Lowest AIC: Monthly AQI (AIC: 1.46)
+    \end{Verbatim}
 
     \subparagraph{Conclusion:}\label{conclusion}
 
