@@ -186,8 +186,8 @@
     \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
     % Document parameters
     % Document title
-    \title{Math6450\_Assignment3}
-    
+    \title{Math6450 Assignment3: Time Series AQI Analysis}
+    \author{Ian Tai Ahn}
     
     
     
@@ -429,7 +429,7 @@ to be true since there were no missing or NA values in these datasets.
     { \hspace*{\fill} \\}
     
     The daily AQI shows that there is quite a bit of fluctuations day to
-day, and that each year follows a similar pattern. This means there
+day, and that each year follows a similar pattern. This means there is
 seasonality is present in this data.
 
     \begin{center}
@@ -438,10 +438,10 @@ seasonality is present in this data.
     { \hspace*{\fill} \\}
     
     Using the monthly average of the AQI shows a smoother line and a bigger
-picture view to how the data has changed over the years. However, it can
+picture view of how the data has changed over the years. However, it can
 smooth the line too much and it may not be able to capture short-term
 AQI fluctuations and changes. Smoothing out the graph also shows the
-very obvious point where we have a seasonal trend. The month July
+obvious point where we have a seasonal trend. The month of July
 consistently jumps up in AQI.
 
     \begin{center}
@@ -450,25 +450,25 @@ consistently jumps up in AQI.
     { \hspace*{\fill} \\}
     
     Looking at the weekly changes in AQI shows that there seems to be some
-seasonality and trends in the data, but we can see short term
+seasonality and trends in the data, but we can see short-term
 fluctuations as well. This may be an applicable middle ground since the
 lines aren't as smooth as they are in the monthly AQI plot.
 
-    \subparagraph{Reason for Aggregation (if
-applicable):}\label{reason-for-aggregation-if-applicable}
+    \subparagraph{Reason for Aggregation:}\label{reason-for-aggregation}
 
     Upon initial data exploration, while there is enough data for daily time
 series modeling, the distribution was skewed right, and the daily trends
-were quite jagged. So, when graphing both monthly, and weekly averages
-the monthly data looked a little to smooth, and weekly data looked to be
-the most promising since there are still obvious seasonly patterns and
-the data didn't look so smoothed over it wouldn't capture other trends.
+were quite jagged. So, when graphing both monthly and weekly averages
+the monthly data looked a little too smooth, and weekly data looked to
+be the most promising since there are still obvious seasonal patterns
+and the data didn't look so smooth over it wouldn't capture other
+trends.
 
-So, in an attempt to capture as much AQI patterns as possible this the
-weekly and monthly data will be used to compare and contrast results.
+So, to capture as many AQI patterns as possible the weekly and monthly
+data will be used to compare results.
 
 This means that from the daily AQI data we will aggregate the weekly and
-monthly means for analyzing, and AQI forcasting.
+monthly means for analyzing, and AQI forecasting.
 
     \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_14_0.png}
@@ -501,7 +501,7 @@ log transformations to ensure the data is stationary.
     \end{center}
     { \hspace*{\fill} \\}
     
-    The distributuion looks quite normal now after log transformation.
+    The distribution looks quite normal now after log transformation.
 
     \begin{center}
     \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_23_0.png}
@@ -513,28 +513,25 @@ plotted.
 
     \subparagraph{Seasonal Patterns:}\label{seasonal-patterns}
 
-    Well it passed after log transforming so we will still check for
-seasonality.
-
-    We first noticed of the seasonality of the data in the Daily AQI graph,
-and it was made clear there was seasonality when graphing the aggregated
-monthly avg AQI dataset. In order to get rid of this seasonality seasonl
-differencing will be needed to ensure this datat set is staionary and
+    We first noticed the seasonality of the data in the Daily AQI graph, and
+it was made clear there was seasonality when graphing the aggregated
+monthly avg AQI dataset. To get rid of this seasonality seasonal
+differencing will be needed to ensure this data set is stationary and
 ready for modeling.
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_28_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_27_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     We can interpret the adf statistic as the more negative, the more
 evidence there is that the data is stationary. A smaller p-value means
 that there is high evidence we can reject the null resulting in a
-stationary time series. Both of these numbers are low so we can assume
-we have stationary time series data.
+stationary time series. Both numbers are low so we can assume we have
+stationary time series data.
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_31_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_30_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -543,7 +540,7 @@ and there, but most importantly there is oscillating behavior in the
 visuals which means air quality does suffer from seasonality.
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_33_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_32_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -553,7 +550,7 @@ like, and it is much more obvious that there is a major trend going on
 in this data.
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_35_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_34_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -569,7 +566,7 @@ meaning were making the data more stationarity.
     \subparagraph{Autocorrelation:}\label{autocorrelation}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_39_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_38_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -582,7 +579,7 @@ then tails off with no clear pattern. This can be interpreted as after 1
 lag, there isn't a direct strong influence on the weekly AQI values.
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_41_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_40_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -600,27 +597,27 @@ accounted for.
     \subparagraph{Correlation Coefficients:}\label{correlation-coefficients}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_44_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_43_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_44_1.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_43_1.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_44_2.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_43_2.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_44_3.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_43_3.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_44_4.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_43_4.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -629,15 +626,15 @@ seasons, like fall, winter, summer, and spring. It makes sense that on a
 lag of 1, there is a positive correlation because it is still within the
 season. However, looking at lags 12, and 26, that is comparing data to a
 different season which causes a negative correlation reversing the
-correlation. I can say since I start this lag in January, 26 weeks ago
-from January is in the summer, June or July, so it makes sense the lag
-would calculate a negative correlation.
+correlation. I can say since I started this lag in January, 26 weeks ago
+January is in the summer, June or July, so it makes sense the lag would
+calculate a negative correlation.
 
 Looking at the monthly data pretty much confirms this as well, since
 looking at lag 6 shows a negative correlation with the current value
-meaning winter is colder than summer. So, we can confirm that there is
+meaning winter is colder than summer. So, we can confirm that there are
 correlation and seasonality in this data, and we will now be able to
-better select a model to forecast the AQI.
+select a model to forecast the AQI.
 
 Comparing the pearson\_r scores with the plotted ACF graph shows they
 both agree with each other reinforcing that correlation and seasonality
@@ -646,46 +643,11 @@ is present in this data due to changing seasons.
     \subparagraph{Data Splitting:}\label{data-splitting}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_47_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_46_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \subparagraph{Model Selection:}\label{model-selection}
-
-    Weekly:
-
-SARIMA(1,0,0)(1,1,0){[}52{]} - This is also quite good.
-
-SARIMA(1,1,1)(1,1,1){[}52{]} - might have been the best weekly
-predictions
-
-SARIMA(2,1,1)(1,1,1){[}52{]} or SARIMA(1,1,2)(1,1,1){[}52{]} - try
-adding another AR or MA term \textbar{} \textbar\textbar{} Did alright
-This one might have been for forecasting btbh. This one, or the simpler
-(1,1,1)(1,1,1,{[}52{]})\ldots.
-
-SARIMA(1,1,1)(2,1,1){[}52{]} or SARIMA(1,1,1)(1,1,2){[}52{]} - explore
-richer seasonal structure CURRENT \textbar\textbar{} this did alright,
-kind of bad tbh
-
-SARIMA(0,1,1)(0,1,1){[}52{]} - simpler model (sometimes less is more)
-\textbar{} equally as bad nearly
-
-Monthly:
-
-SARIMA(2,0,0)(1,0,0){[}12{]} - add another non-seasonal AR lag
-\textbar{} BAD
-
-SARIMA(1,0,1)(1,0,0){[}12{]} - add MA component \textbar{}
-\textbar\textbar{} The normal monthly was bad, but the Monthly LOG was
-good. Best for LOG
-
-SARIMA(1,0,0)(2,0,0){[}12{]} or SARIMA(1,0,0)(1,0,1){[}12{]} - richer
-seasonal terms \textbar{} CURRENT \textbar\textbar{} awful. infinite
-upwards bye bye.
-
-SARIMA(1,1,1)(1,1,1){[}12{]} - Log did ight, but the non-log was crap.
-Best for non log.
 
     I tested different p, d, q, P, D, and Q values for the SARIMAX model,
 and made decisions based on the ACF/PACF plots and how stationary my
@@ -693,69 +655,51 @@ data was. What I found was that taking the difference and seasonal
 difference impacted all the models except for the logged aqi positively.
 Also, setting p/P and q/Q to a value of 1 also showed better forecasting
 and results. These values set to 1 helped the model capture short-term
-autocerrlation which we saw a little bit of in the ACF plots, and the
+autocorrelation which we saw a little bit of in the ACF plots, and the
 seasonal trends were apparent from graphed data so both p/P and q/Q
 helped the model perform well.
 
     \subparagraph{Model Parameters and
 Diagnostics:}\label{model-parameters-and-diagnostics}
 
-    
-    \begin{Verbatim}[commandchars=\\\{\}]
-<Figure size 1400x800 with 0 Axes>
-    \end{Verbatim}
-
-    
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_53_1.png}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    
-    \begin{Verbatim}[commandchars=\\\{\}]
-<Figure size 1400x800 with 0 Axes>
-    \end{Verbatim}
-
-    
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_53_3.png}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    
-    \begin{Verbatim}[commandchars=\\\{\}]
-<Figure size 1400x800 with 0 Axes>
-    \end{Verbatim}
-
-    
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_53_5.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_52_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_53_6.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_52_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_52_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_52_3.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \subparagraph{Forecasting:}\label{forecasting}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_55_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_54_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \subparagraph{Model Performance:}\label{model-performance}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_57_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_56_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \subparagraph{Residual Analysis}\label{residual-analysis}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_59_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Math6450_Assignment3_files/Math6450_Assignment3_58_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -763,34 +707,35 @@ Diagnostics:}\label{model-parameters-and-diagnostics}
 
     \begin{Verbatim}[commandchars=\\\{\}]
 
-Weekly AQI:
-  SARIMA(1, 1, 1) x (1, 1, 1, 52)
-  Notation: SARIMA(p=1, d=1, q=1) x (P=1, D=1, Q=1, s=52)
-  Model: (1 - φ₁B)(1 - Φ₁B\^{}52)(1 - B)(1 - B\^{}52)Yₜ = (1 + θ₁B)(1 + Θ₁B\^{}52)εₜ
-
-Weekly Log AQI:
-  SARIMA(1, 1, 1) x (1, 1, 1, 52)
-  Notation: SARIMA(p=1, d=1, q=1) x (P=1, D=1, Q=1, s=52)
-  Model: (1 - φ₁B)(1 - Φ₁B\^{}52)(1 - B)(1 - B\^{}52)Yₜ = (1 + θ₁B)(1 + Θ₁B\^{}52)εₜ
-
 Monthly AQI:
   SARIMA(1, 1, 1) x (1, 1, 1, 12)
   Notation: SARIMA(p=1, d=1, q=1) x (P=1, D=1, Q=1, s=12)
   Model: (1 - φ₁B)(1 - Φ₁B\^{}12)(1 - B)(1 - B\^{}12)Yₜ = (1 + θ₁B)(1 + Θ₁B\^{}12)εₜ
 
-Monthly Log AQI:
-  SARIMA(1, 0, 1) x (1, 0, 0, 12)
-  Notation: SARIMA(p=1, d=0, q=1) x (P=1, D=0, Q=0, s=12)
-  Model: (1 - φ₁B)(1 - Φ₁B\^{}12)(1 - B)(1 - B\^{}12)Yₜ = (1 + θ₁B)(1 + Θ₁B\^{}12)εₜ
-
-Best models by different criteria:
-  Lowest RMSE: Monthly AQI (RMSE: 6.0475)
-  Lowest MAE: Monthly AQI (MAE: 5.0463)
-  Lowest MAPE: Monthly AQI (MAPE: 9.56\%)
-  Lowest AIC: Monthly AQI (AIC: 1.46)
+Best results by different criteria:
+  Lowest RMSE: Monthly AQI (RMSE: 5.9618)
+  Lowest MAE: Monthly AQI (MAE: 5.0084)
+  Lowest MAPE: Monthly AQI (MAPE: 9.48\%)
+  Lowest AIC: Monthly AQI (AIC: -1.26)
     \end{Verbatim}
 
     \subparagraph{Conclusion:}\label{conclusion}
+
+    This was an interesting study for many reasons. Firstly, since the time
+series data did have seasonality, it was a good exercise to discover
+what order difference, and seasonal differences to apply to the data.
+Since the dataset was populated quite well, and there weren't any
+missing dates, there was no need for dropping N/A values or imputing so
+that was nice to not have to handle that. Focusing on the ACF/PACF,
+stationarity, and variance let me think more about the seasonality of
+the data, and which p/d/q values to choose for the arima model.
+
+In the end the best performing model was the base monthly AQI model that
+was aggregated monthly by average. However, the forecasted results given
+by this best performing model still couldn't capture the spike,
+similarly to most of the other models. I wonder what could have been
+done to the data/modeling that would capture the spike for the last
+couple weeks, or months in the dataset.
 
 
     % Add a bibliography block to the postdoc

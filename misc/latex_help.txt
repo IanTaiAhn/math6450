@@ -2,8 +2,9 @@
 
 
     % UNICODE CHARACTER SUPPORT - FIX FOR MISSING CHARACTERS
-    % Add this section to handle Unicode characters in Verbatim environments
     \usepackage{newunicodechar}
+    \usepackage{textcomp}  % For additional symbols
+    \usepackage{amssymb}   % For mathematical symbols
     
     % Define replacements for problematic Unicode characters
     \newunicodechar{ρ}{\ensuremath{\rho}}
