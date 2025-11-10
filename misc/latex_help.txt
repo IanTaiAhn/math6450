@@ -56,6 +56,12 @@ jupyter nbconvert --no-input --to latex Math6450_Assignment1_copy_for_pdf_render
 
 jupyter nbconvert Math6450_Assignment2.ipynb --to latex --no-input --TemplateExporter.exclude_markdown=True
 
+#### Surival Analysis ####
+jupyter nbconvert survival_analysis.ipynb --to latex --no-input
+xelatex survival_analysis.tex
+
+#### Surival Analysis ####
+
 \fontsize{8.5pt}{8pt}\selectfont
     \maketitle
 
