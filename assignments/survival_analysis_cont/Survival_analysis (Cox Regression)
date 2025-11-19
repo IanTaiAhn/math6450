@@ -1,0 +1,31 @@
+Attached are the two data sources and the notebook we discussed in class.
+
+Project Objective: 
+Calculate conditional probabilities of employee departure at specific tenure milestones (weeks 1-12) for different employee cohorts grouped by location (state) and job type using a Survival Model.
+
+You may use Cox model or other suitable survival model.
+
+What You Need to Calculate: For each week of tenure (weeks 1 through 12), determine:
+ * P(leaving | employee has X weeks tenure AND is from a specific state)
+ * P(leaving | employee has X weeks tenure AND has a specific job type)
+
+Grouping Requirements:
+
+By Location:
+ * Calculate probabilities for the top 5 states individually
+ * Calculate one combined probability for all remaining states
+
+By Job Type:
+ * Calculate probabilities for each job type
+
+Example Calculations for Week 1:
+ * P(leaving | 1 week tenure AND employee from Utah)
+ * P(leaving | 1 week tenure AND employee in job_type_1)
+ * Continue for all top 5 states, remaining states combined, and all job types
+
+Repeat this analysis for weeks 2 through 12.
+
+Final Dataset Structure: Your final dataset should contain these columns:
+
+Week number	State 1	                State 2	                State 3	                State 4             	State 5	                Rest of states      	Job type 1	            Job type 2	            Job type 3
+1	        conditional prob value	conditional prob value	conditional prob value	conditional prob value	conditional prob value	conditional prob value	conditional prob value	conditional prob value	conditional prob value
